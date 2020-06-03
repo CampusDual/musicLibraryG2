@@ -20,7 +20,7 @@ ontimize:
             - OPTIONS
             - DELETE
    jdbc:
-      nameConvention: upper
+      nameConvention: lower
       sqlhandler: oracle
       sqlConditionProcessor:
          uppperString: true
@@ -62,9 +62,9 @@ server:
 spring:
    datasource:
       driver-class-name: org.hsqldb.jdbcDriver
-      jdbcUrl: jdbc:hsqldb:hsql://localhost:9013/templateDB
-      username: SA
-      password:
+      jdbcUrl: jdbc:postgresql://45.84.210.174:65432/cd08
+      username: cd08
+      password: cd08_P4$$!
       initialSize: 10
       testOnBorrow: true
    main:
