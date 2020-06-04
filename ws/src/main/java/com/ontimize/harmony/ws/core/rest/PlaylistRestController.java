@@ -5,22 +5,23 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ontimize.harmony.api.core.service.IArtistService;
+
+import com.ontimize.harmony.api.core.service.IPlaylistService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/artists") //TODO TEST
-@ComponentScan(basePackageClasses = {com.ontimize.harmony.api.core.service.IArtistService.class})
-public class ArtistRestController extends ORestController<IArtistService> {
+@RequestMapping("/playlist") //TODO TEST
+@ComponentScan(basePackageClasses = {com.ontimize.harmony.api.core.service.IPlaylistService.class})
+public class PlaylistRestController extends ORestController<IPlaylistService> {
 	
 	@Autowired
-	private IArtistService artistService;
+	private IPlaylistService playlistService;
 	
 	
 	@Override
-	public IArtistService getService() {
+	public IPlaylistService getService() {
 
-		return this.artistService;
+		return this.playlistService;
 	}
 
 }
