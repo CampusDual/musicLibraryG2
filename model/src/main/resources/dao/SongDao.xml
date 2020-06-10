@@ -23,7 +23,7 @@
  	SELECT
  		#COLUMNS#
  	FROM
- 		${mainschema}.SONGS s
+ 		${mainschema}.song s
  	#WHERE#
  		
  	]]>

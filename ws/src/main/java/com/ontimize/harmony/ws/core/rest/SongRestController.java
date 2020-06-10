@@ -34,7 +34,7 @@ public class SongRestController extends ORestController<ISongService> {
 	}
 	
 	@RequestMapping(value = "newestSongs", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public EntityResult getNewestSongs(@RequestBody Map<String, Object> req) {
+	public EntityResult getNewestSongs() {
 		
 		return songService.newestSongs();
 		
