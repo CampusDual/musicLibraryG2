@@ -16,4 +16,6 @@ public interface ISongService {
 	public EntityResult songUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	
 	public EntityResult songDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	
+	public EntityResult newestSongs() throws OntimizeJEERuntimeException;
 }

@@ -12,4 +12,22 @@
   <Column>ID</Column>
  </UpdateKeys>
  <GeneratedKey>ID</GeneratedKey>
+ 
+ <Queries>
+ 	<Query id="newestSongs">
+ 		<AmbiguousColumns>
+ 			<AmbiguousColumn name="song_id" prefix="s"/>
+ 		</AmbiguousColumns>
+ 	<Sentence>
+ 	<![CDATA[
+ 	SELECT
+ 		#COLUMNS#
+ 	FROM
+ 		${mainschema}.SONGS s
+ 	#WHERE#
+ 		
+ 	]]>
+ 	</Sentence>
+ 	</Query>
+ </Queries>
 </JdbcEntitySetup>

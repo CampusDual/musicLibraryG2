@@ -14,13 +14,13 @@ import com.ontimize.jee.server.rest.ORestController;
 public class AlbumRestController extends ORestController<IAlbumService> {
 	
 	@Autowired
-	private IAlbumService songService;
+	private IAlbumService albumService;
 	
 	
 	@Override
 	public IAlbumService getService() {
 
-		return this.songService;
+		return this.albumService;
 	}
 
 }

@@ -23,7 +23,7 @@ public class AlbumService implements IAlbumService {
 	
 	public EntityResult albumQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException {
-		// 
+		
 		return this.daoHelper.query(this.albumDao, keyMap, attrList);
 	}
 	
@@ -43,5 +43,11 @@ public class AlbumService implements IAlbumService {
 		
 		return this.daoHelper.delete(this.albumDao, keyMap);
 	}
-
+	
+	@Override
+	public EntityResult newestAlbums(Map<String, Object> keyMap, List<String> attrList)
+			throws OntimizeJEERuntimeException {
+		
+		return this.daoHelper.query(this.albumDao, keyMap, attrList,"newestAlbums");
+	}
 }

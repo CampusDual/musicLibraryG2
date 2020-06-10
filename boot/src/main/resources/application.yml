@@ -29,29 +29,29 @@ ontimize:
       mode: default
       roleInformationService:
          roleRepository: UserRoleDao
-         roleNameColumn: ROLENAME
+         roleNameColumn: rolename
          serverPermissionQueryId: serverPermissions
-         serverPermissionNameColumn: PERMISSION_NAME
+         serverPermissionNameColumn: permission_name
          clientPermissionQueryId: clientPermissions
-         clientPermissionColumn: XMLCLIENTPERMISSION
+         clientPermissionColumn: xmlclientpermission
       userInformationService:
          userRepository: UserDao
-         userLoginColumn: USER_
-         userPasswordColumn: PASSWORD
+         userLoginColumn: user_email
+         userPasswordColumn: user_password
          queryId: login
          otherData:
-            - NAME
-            - SURNAME
-            - EMAIL
-            - NIF
-            - USERBLOCKED
-            - LASTPASSWORDUPDATE
-            - FIRSTLOGIN
+            - user_name
+            - user_surname
+            - user_email
+            - user_name
+            - user_userblocked
+            - user_lastpasswordupdate
+            - user_firstlogin
       userRoleInformationService:
          userRoleRepository: UserRoleDao
          queryId: userRole
-         roleLoginColumn: USER_
-         roleNameColumn: ROLENAME
+         roleLoginColumn: user_id
+         roleNameColumn: rolename
 server:
    port: 33333
    tomcat:
@@ -61,7 +61,7 @@ server:
       mime-types: application/json, application/xml
 spring:
    datasource:
-      driver-class-name: org.hsqldb.jdbcDriver
+      driver-class-name: org.postgresql.Driver
       jdbcUrl: jdbc:postgresql://45.84.210.174:65432/cd08
       username: cd08
       password: cd08_P4$$!

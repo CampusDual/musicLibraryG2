@@ -12,4 +12,21 @@
   <Column>ID</Column>
  </UpdateKeys>
  <GeneratedKey>ID</GeneratedKey>
+	<Queries>
+		<Query id="newestAlbums">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="ID" prefix="a"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.ALBUMS a
+				#WHERE#
+				
+				]]>
+			</Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>

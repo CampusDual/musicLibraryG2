@@ -1,5 +1,8 @@
 package com.ontimize.harmony.model.core.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +15,7 @@ import com.ontimize.harmony.api.core.service.ISongService;
 import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
-
+import com.ontimize.harmony.model.core.dao.SongDao;
 @Service("SongService")
 @Lazy
 public class SongService implements ISongService {
@@ -23,8 +26,15 @@ public class SongService implements ISongService {
 	
 	public EntityResult songQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException {
-		// 
+	
 		return this.daoHelper.query(this.songDao, keyMap, attrList);
+	}
+	@Override
+	public EntityResult newestSongs()
+			throws OntimizeJEERuntimeException {
+		Map<String, Object> keyMap= new HashMap<String, Object>();
+		List<String> attrList = Arrays.asList(songDao.ATTR_DURATION,songDao.ATTR_NAME,songDao.ATTR_SONG_ID);
+		return this.daoHelper.query(this.songDao, keyMap, attrList,"newestSongs");
 	}
 	
 	@Override
@@ -43,5 +53,6 @@ public class SongService implements ISongService {
 		
 		return this.daoHelper.delete(this.songDao, keyMap);
 	}
+
 
 }
