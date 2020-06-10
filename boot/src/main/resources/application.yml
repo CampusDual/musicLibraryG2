@@ -44,13 +44,13 @@ ontimize:
             - user_surname
             - user_email
             - user_name
-            - user_userblocked
-            - user_lastpasswordupdate
-            - user_firstlogin
+            - user_creation_date
+            - user_down_date
+            - user_birth_date
       userRoleInformationService:
          userRoleRepository: UserRoleDao
          queryId: userRole
-         roleLoginColumn: user_id
+         roleLoginColumn: user_email
          roleNameColumn: rolename
 server:
    port: 33333

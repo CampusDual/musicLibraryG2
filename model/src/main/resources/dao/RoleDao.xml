@@ -6,9 +6,9 @@
     catalog="" schema="${mainschema}" table="trole"
     datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>ID_ROLENAME</Column>
+        <Column>id_rolename</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>ID_ROLENAME</Column>
+        <Column>id_rolename</Column>
     </UpdateKeys>
 </JdbcEntitySetup>
