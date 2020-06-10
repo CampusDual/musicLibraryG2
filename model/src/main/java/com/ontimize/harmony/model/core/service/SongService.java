@@ -2,6 +2,8 @@ package com.ontimize.harmony.model.core.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +13,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.ontimize.db.EntityResult;
+import com.ontimize.db.SQLStatementBuilder;
+import com.ontimize.db.SQLStatementBuilder.BasicExpression;
+import com.ontimize.db.SQLStatementBuilder.BasicField;
+import com.ontimize.db.SQLStatementBuilder.BasicOperator;
 import com.ontimize.harmony.api.core.service.ISongService;
 import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
@@ -34,6 +40,10 @@ public class SongService implements ISongService {
 			throws OntimizeJEERuntimeException {
 		Map<String, Object> keyMap= new HashMap<String, Object>();
 		List<String> attrList = Arrays.asList(songDao.ATTR_DURATION,songDao.ATTR_NAME,songDao.ATTR_SONG_ID);
+		
+		
+		
+		
 		return this.daoHelper.query(this.songDao, keyMap, attrList,"newestSongs");
 	}
 	
@@ -54,5 +64,15 @@ public class SongService implements ISongService {
 		return this.daoHelper.delete(this.songDao, keyMap);
 	}
 
+	private BasicExpression getSongsNewerThan(String param, int nYearsOld) {
 
+	Calendar cal = Calendar.getInstance();
+	int currentYear = cal.get(Calendar.YEAR);
+	cal.set(currentYear - nYearsOld,0,1);
+	Date startDate = cal.getTime();
+
+	BasicField field = new BasicField(param);
+
+	return new BasicExpression(field, BasicOperator.MORE_EQUAL_OP,startDate);
+	}
 }

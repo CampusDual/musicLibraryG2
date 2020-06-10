@@ -14,5 +14,6 @@ public class SongDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_SONG_ID = "song_id";
  public static final String ATTR_NAME = "name";
  public static final String ATTR_DURATION = "duration";
+ 
 
 }
