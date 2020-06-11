@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ontimize.db.EntityResult;
+import com.ontimize.db.SQLStatementBuilder;
+import com.ontimize.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.harmony.api.core.service.ISongService;
+import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.harmony.model.core.service.SongService;
 import com.ontimize.jee.server.rest.ORestController;
 
@@ -38,8 +41,13 @@ public class SongRestController extends ORestController<ISongService> {
 		
 		return songService.newestSongs();
 		
-		
-		
 	}
-
+	
+	@RequestMapping(value = "/searchSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult songSearch(@RequestBody Map<String,Object> req) {
+		
+	return this.songService.searchSongs();
+	
 }
+}
+	

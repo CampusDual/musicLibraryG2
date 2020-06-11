@@ -18,4 +18,6 @@ public interface ISongService {
 	public EntityResult songDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	
 	public EntityResult newestSongs() throws OntimizeJEERuntimeException;
+
+	public EntityResult searchSongs(Map<String, Object> req) throws OntimizeJEERuntimeException;
 }

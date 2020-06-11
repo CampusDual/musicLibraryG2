@@ -6,16 +6,17 @@
  catalog="" schema="${mainschema}" table="album"
  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
  <DeleteKeys>
-  <Column>ID</Column>
+ 
  </DeleteKeys>
  <UpdateKeys>
-  <Column>ID</Column>
+  <Column>album_id</Column>
+  <Column>song_id</Column>
  </UpdateKeys>
- <GeneratedKey>ID</GeneratedKey>
+ <GeneratedKey>album_id</GeneratedKey>
 	<Queries>
 		<Query id="newestAlbums">
 			<AmbiguousColumns>
-				<AmbiguousColumn name="ID" prefix="a"/>
+				<AmbiguousColumn name="album_id" prefix="a"/>
 			</AmbiguousColumns>
 			<Sentence>
 				<![CDATA[

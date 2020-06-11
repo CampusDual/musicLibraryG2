@@ -3,33 +3,32 @@
  xmlns="http://www.ontimize.com/schema/jdbc"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
- catalog="" schema="${mainschema}" table="song"
+ catalog="" schema="${mainschema}" table="album_song"
  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
  <DeleteKeys>
+   <Column>album_id</Column>
   <Column>song_id</Column>
  </DeleteKeys>
  <UpdateKeys>
+  <Column>album_id</Column>
   <Column>song_id</Column>
  </UpdateKeys>
- <GeneratedKey>song_id</GeneratedKey>
- 
- <Queries>
- 	<Query id="newestSongs">
- 		<AmbiguousColumns>
- 			<AmbiguousColumn name="song_id" prefix="s"/>
- 		</AmbiguousColumns>
- 	<Sentence>
- 	<![CDATA[
- 	SELECT
- 		#COLUMNS#
- 	FROM
- 		${mainschema}.song s 
- 		INNER JOIN album_song als ON s.song_id = als.song_id 
-		INNER JOIN album a ON als.album_id = a.album_id 
- 	#WHERE#
- 		
- 	]]>
- 	</Sentence>
- 	</Query>
- </Queries>
+ <GeneratedKey>id</GeneratedKey>
+	<Queries>
+		<Query id="newestAlbums">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="ID" prefix="a"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.ALBUMS a
+				#WHERE#
+				
+				]]>
+			</Sentence>
+		</Query>
+	</Queries>
 </JdbcEntitySetup>
