@@ -46,7 +46,7 @@ public class SongRestController extends ORestController<ISongService> {
 	@RequestMapping(value = "/searchSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult songSearch(@RequestBody Map<String,Object> req) {
 		
-	return this.songService.searchSongs();
+	return this.songService.searchSongs(req);
 	
 }
 }
