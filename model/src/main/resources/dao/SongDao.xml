@@ -27,9 +27,27 @@
  		INNER JOIN album_song als ON s.song_id = als.song_id 
 		INNER JOIN album a ON als.album_id = a.album_id 
  	#WHERE#
+ 	ORDER BY creation_date desc
+ 	]]>
+ 	
+ 	</Sentence>
+ 	</Query>
+ 	<Query id="searchSong">
+ 		<AmbiguousColumns>
+ 			<AmbiguousColumn name="song_id" prefix="s"/>
+ 		</AmbiguousColumns>
+ 		<Sentence>
+ 		<![CDATA[
+ 	SELECT
+ 		#COLUMNS#
+ 	FROM
+ 		${mainschema}.song s 
+ 		INNER JOIN album_song als ON s.song_id = als.song_id 
+		INNER JOIN album a ON als.album_id = a.album_id 
+ 	#WHERE#
  		
  	]]>
- 	</Sentence>
+ 		</Sentence>
  	</Query>
  </Queries>
 </JdbcEntitySetup>

@@ -19,5 +19,5 @@ public interface ISongService {
 	
 	public EntityResult newestSongs() throws OntimizeJEERuntimeException;
 
-	public EntityResult searchSongs(Map<String, Object> req) throws OntimizeJEERuntimeException;
+	public EntityResult searchSong(Map<String, Object> req) throws OntimizeJEERuntimeException;
 }

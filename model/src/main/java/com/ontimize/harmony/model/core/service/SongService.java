@@ -1,9 +1,7 @@
 package com.ontimize.harmony.model.core.service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +19,6 @@ import com.ontimize.harmony.api.core.service.ISongService;
 import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
-import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.harmony.model.core.dao.AlbumDao;
 @Service("SongService")
 @Lazy
@@ -41,7 +38,8 @@ public class SongService implements ISongService {
 	public EntityResult newestSongs()
 			throws OntimizeJEERuntimeException {
 		Map<String, Object> keyMap= new HashMap<String, Object>();
-		List<String> attrList = Arrays.asList(songDao.ATTR_DURATION,songDao.ATTR_NAME,songDao.ATTR_SONG_ID, albumDao.ATTR_CREATION_DATE);
+		List<String> attrList = Arrays.asList(SongDao.ATTR_DURATION,SongDao.ATTR_NAME,SongDao.ATTR_SONG_ID, AlbumDao.ATTR_CREATION_DATE);
+	
 		
 		return this.daoHelper.query(this.songDao, keyMap, attrList,"newestSongs");
 	}
@@ -63,26 +61,22 @@ public class SongService implements ISongService {
 		return this.daoHelper.delete(this.songDao, keyMap);
 	}
 	
-	public EntityResult songSearch( Map<String,Object> req) {
+	@Override
+	public EntityResult searchSong(Map<String, Object> req) 
+			throws OntimizeJEERuntimeException {
+
 		try {
-			List<String> columns = (List<String>) req.get("columns");
-			Map<String,Object> filter = (Map<String,Object>) req.get("filter");
+			List<String> columns = Arrays.asList(SongDao.ATTR_DURATION,SongDao.ATTR_NAME,SongDao.ATTR_SONG_ID);
+			@SuppressWarnings("unchecked") //TODO Preguntar por esto
+			Map<String,Object> filter =  (Map<String, Object>) req.get("filter");
 			
-			
-			
-			String nameToSearch = (String) filter.get("NAME");
-			String option = (String) filter.get("OPTION");
-			if(!option.equals("")) {
-				Map<String,Object> key = new HashMap<String,Object>();
+			String nameToSearch = (String) filter.get("name");
+			System.out.println(nameToSearch);
+			Map<String,Object> key = new HashMap<String,Object>();
 				key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,
-						searchLike(nameToSearch, option));
-				return songService.songQuery(key, columns);
-			
-		}else {
-			Map<String, Object> key = new HashMap<String, Object>();
-			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchAll(nameToSearch));
-			return songService.songQuery(key, columns);
-		}
+						searchLike(nameToSearch));
+				
+				return this.daoHelper.query(this.songDao, key, columns,"newestSongs");
 		
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -92,5 +86,16 @@ public class SongService implements ISongService {
 		}
 	}
 	
+	
+	
+	
+	//This returns a basicExpression with LIKE %searchTerm% that gets added onto a more complex SQL statement.
+	private BasicExpression searchLike(String searchTerm) {
+		String param = null;
+		
+		BasicField field = new BasicField(param);
+		BasicExpression bexp1 = new BasicExpression(field, BasicOperator.LIKE_OP, "%"+searchTerm+"%");
+		return bexp1;
+	}
 	
 }

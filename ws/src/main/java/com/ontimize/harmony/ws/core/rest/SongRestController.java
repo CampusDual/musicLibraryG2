@@ -2,8 +2,6 @@ package com.ontimize.harmony.ws.core.rest;
 
 
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ontimize.db.EntityResult;
-import com.ontimize.db.SQLStatementBuilder;
-import com.ontimize.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.harmony.api.core.service.ISongService;
-import com.ontimize.harmony.model.core.dao.SongDao;
-import com.ontimize.harmony.model.core.service.SongService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
@@ -43,10 +37,10 @@ public class SongRestController extends ORestController<ISongService> {
 		
 	}
 	
-	@RequestMapping(value = "/searchSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "searchSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult songSearch(@RequestBody Map<String,Object> req) {
 		
-	return this.songService.searchSongs(req);
+	return this.songService.searchSong(req);
 	
 }
 }
