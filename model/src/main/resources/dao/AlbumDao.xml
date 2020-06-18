@@ -6,13 +6,12 @@
  catalog="" schema="${mainschema}" table="album"
  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
  <DeleteKeys>
- 
+ 	<Column>album_id</Column>
  </DeleteKeys>
  <UpdateKeys>
-  <Column>album_id</Column>
-  <Column>song_id</Column>
+	<Column>album_id</Column>
  </UpdateKeys>
- <GeneratedKey>album_id</GeneratedKey>
+ 	<GeneratedKey>album_id</GeneratedKey>
 	<Queries>
 		<Query id="newestAlbums">
 			<AmbiguousColumns>

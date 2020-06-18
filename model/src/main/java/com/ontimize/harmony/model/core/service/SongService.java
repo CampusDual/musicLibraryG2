@@ -39,7 +39,6 @@ public class SongService implements ISongService {
 			throws OntimizeJEERuntimeException {
 		Map<String, Object> keyMap= new HashMap<String, Object>();
 		List<String> attrList = Arrays.asList(SongDao.ATTR_DURATION,SongDao.ATTR_NAME,SongDao.ATTR_SONG_ID, AlbumDao.ATTR_CREATION_DATE);
-	
 		
 		return this.daoHelper.query(this.songDao, keyMap, attrList,"newestSongs");
 	}
