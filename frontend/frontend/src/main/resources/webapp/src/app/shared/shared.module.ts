@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     OntimizeWebModule
   ],
-  declarations: [
-  ],
+ 
+  declarations: [],
   exports: [
     CommonModule
   ]

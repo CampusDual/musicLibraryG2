@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import {
   APP_CONFIG,
   ONTIMIZE_MODULES,
@@ -10,7 +9,8 @@ import {
 import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import {CarouselModule} from "ngx-carousel-lib";
+import { HeaderComponent } from './header/header.component';
 // Standard providers...
 // Defining custom providers (if needed)...
 export const customProviders: any = [
@@ -20,10 +20,12 @@ export const customProviders: any = [
   imports: [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   bootstrap: [
     AppComponent

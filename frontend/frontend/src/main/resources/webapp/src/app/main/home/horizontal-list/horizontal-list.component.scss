@@ -1,0 +1,22 @@
+.hl-wrapper{
+    display:flex;
+    flex-direction: row;
+    
+}
+.album-display{
+    
+    display: flex;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
+.artist-display{
+    display:flex;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
+.item-display:hover{
+    filter: brightness(0.4);
+    transition:0.2s;
+}
