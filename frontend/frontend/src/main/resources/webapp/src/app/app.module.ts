@@ -9,8 +9,6 @@ import {
 import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {CarouselModule} from "ngx-carousel-lib";
-import { HeaderComponent } from './header/header.component';
 // Standard providers...
 // Defining custom providers (if needed)...
 export const customProviders: any = [
@@ -20,12 +18,10 @@ export const customProviders: any = [
   imports: [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
-    AppRoutingModule,
-    CarouselModule
+    AppRoutingModule
   ],
   declarations: [
-    AppComponent,
-    HeaderComponent
+    AppComponent
   ],
   bootstrap: [
     AppComponent

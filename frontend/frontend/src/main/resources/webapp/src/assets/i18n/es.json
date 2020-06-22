@@ -15,5 +15,7 @@
   "ERROR_PASS_REQUIRED": "Contraseña incorrecta.",
   "ERROR_USER_PASS_INCORRECT": "Usuario o contraseña incorrecta.",
   "NEWEST_ALBUMS":"Nuevos álbumes",
-  "NEWEST_ARTISTS": "Nuevos artistas"
+  "NEWEST_ARTISTS": "Nuevos artistas",
+  "EXPLORE": "Explorar",
+  "MYLISTS": "Mis listas"
 }

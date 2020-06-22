@@ -27,7 +27,6 @@
             ],
             "styles": [
               "node_modules/ontimize-web-ngx/ontimize.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/app.scss",
               "src/styles.scss"
             ],

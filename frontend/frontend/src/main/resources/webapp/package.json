@@ -29,7 +29,6 @@
     "@ngmodule/material-carousel": "^0.6.0",
     "@ngx-translate/core": "10.0.2",
     "@ngx-translate/http-loader": "3.0.1",
-    "bootstrap": "^3.3.7",
     "core-js": "2.5.7",
     "ngx-carousel-lib": "^0.1.2",
     "ngx-swiper-wrapper": "^4.6.6",
