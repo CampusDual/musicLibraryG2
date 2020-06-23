@@ -76,7 +76,7 @@
 
 		</dependencies>
 	</dependencyManagement>
-<modules>  <module>api</module>
+	<modules><module>api</module>
     <module>frontend</module>
     <module>boot</module>
     <module>model</module>

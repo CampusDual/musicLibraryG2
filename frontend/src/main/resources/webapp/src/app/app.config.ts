@@ -15,7 +15,7 @@ export const CONFIG: Config = {
   uuid: 'com.ontimize.web.ngx.jee.seed',
 
   // Title of the app
-  title: 'JEE seed',
+  title: 'Harmony',
 
   //  Language of the application.
   locale: 'en',
