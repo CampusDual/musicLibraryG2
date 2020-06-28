@@ -6,6 +6,7 @@ import { MainComponent } from './main.component';
 import { HomeModule } from './home/home.module';
 import { ExploreModule } from './explore/explore.module';
 import { MylistsModule } from './mylists/mylists.module';
+import { TestpageModule } from './testpage/testpage.module';
 
 export function loadHomeModule() {
   return HomeModule;
@@ -16,6 +17,10 @@ export function loadExploreModule(){
 }
 export function loadMylistsModule(){
   return MylistsModule
+}
+
+export function loadTestPageModule(){
+  return TestpageModule
 }
 
 export const routes: Routes = [
@@ -30,7 +35,8 @@ export const routes: Routes = [
         loadChildren: loadHomeModule
       },
       { path: 'explore', loadChildren: loadExploreModule},
-      { path: 'mylists', loadChildren: loadMylistsModule} 
+      { path: 'mylists', loadChildren: loadMylistsModule},
+      { path: 'testpage', loadChildren: loadTestPageModule}
     ]
   }
 ];
