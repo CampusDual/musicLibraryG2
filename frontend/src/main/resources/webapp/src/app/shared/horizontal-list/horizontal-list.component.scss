@@ -1,0 +1,13 @@
+.hl-wrapper{
+    display:flex;
+    flex-direction: row;
+    height: 200px;
+    width: 100%;
+}
+.list-item{
+    height: 100%;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}

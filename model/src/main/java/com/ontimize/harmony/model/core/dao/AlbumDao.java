@@ -19,6 +19,6 @@ public class AlbumDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_SUBGENRE_ID = "subgenre_id";
  public static final String ATTR_ARTIST_ID = "artist_id";
  public static final String ATTR_CREATION_DATE = "creation_date";
- 
+ public static final String ATTR_IMAGE_PATH = "image_path";
 
 }

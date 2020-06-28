@@ -3,10 +3,9 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { SharedModule } from '../../shared/shared.module';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { HorizontalListComponent } from './horizontal-list/horizontal-list.component';
-import { ListItemComponent } from './horizontal-list/list-item/list-item.component';
-import { AlbumListComponent } from './album-list/album-list.component';
-import { AlbumComponent } from './album/album.component';
+import { HorizontalListComponent } from '../../shared/horizontal-list/horizontal-list.component';
+import { ListItemComponent } from '../../shared/horizontal-list/list-item/list-item.component';
+import { AlbumComponent } from '../../shared/album/album.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -17,7 +16,6 @@ import { AlbumComponent } from './album/album.component';
     HomeComponent,
     HorizontalListComponent,
     ListItemComponent,
-    AlbumListComponent,
     AlbumComponent
   ]
 })

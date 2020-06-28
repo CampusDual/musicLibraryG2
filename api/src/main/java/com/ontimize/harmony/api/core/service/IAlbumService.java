@@ -13,4 +13,5 @@ public interface IAlbumService {
 	public EntityResult albumInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException;
 	public EntityResult albumUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	public EntityResult albumDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	public EntityResult newestAlbums();
 }

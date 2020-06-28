@@ -1,5 +1,7 @@
 package com.ontimize.harmony.model.core.service;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.ontimize.db.EntityResult;
 import com.ontimize.harmony.api.core.service.IAlbumService;
 import com.ontimize.harmony.model.core.dao.AlbumDao;
+import com.ontimize.harmony.model.core.dao.SongDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
@@ -42,6 +45,14 @@ public class AlbumService implements IAlbumService {
 	public EntityResult albumDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		
 		return this.daoHelper.delete(this.albumDao, keyMap);
+	}
+
+	@Override
+	public EntityResult newestAlbums() throws OntimizeJEERuntimeException {
+		Map<String, Object> keyMap= new HashMap<String, Object>();
+		List<String> attrList = Arrays.asList(AlbumDao.ATTR_TITLE, AlbumDao.ATTR_RELEASE_YEAR,AlbumDao.ATTR_CREATION_DATE, AlbumDao.ATTR_IMAGE_PATH);
+		
+		return this.daoHelper.query(this.albumDao, keyMap, attrList,"newestAlbums");
 	}
 	
 	

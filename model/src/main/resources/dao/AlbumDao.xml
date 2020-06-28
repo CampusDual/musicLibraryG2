@@ -22,9 +22,8 @@
 				SELECT
 					#COLUMNS#
 				FROM
-					${mainschema}.ALBUMS a
+					${mainschema}.ALBUM a
 				#WHERE#
-				
 				]]>
 			</Sentence>
 		</Query>
