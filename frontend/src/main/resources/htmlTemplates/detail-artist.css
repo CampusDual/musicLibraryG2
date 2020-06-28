@@ -1,0 +1,33 @@
+html,body{
+  font-family: 'Zilla Slab', serif;
+  background-color: #fff;
+  color: #000;
+}
+.bandBanner-wrapper{
+  height: 10%;
+  width:100%;
+  display:block;
+  margin: 0;
+}
+.bandBanner{
+  height: auto;
+  width: 100%;
+  margin: 0;
+}
+.hl-container{
+  display:flex;
+  flex-direction: row;
+  height: 200px;
+}
+.list-item{
+  height: 200px;
+  display:flex;
+  width:auto;
+
+}
+.album-card{
+  margin:10px;
+}
+.wrapper{
+  max-width:700px;
+}

@@ -1,0 +1,32 @@
+html, body{
+  font-family: 'Zilla Slab';
+}
+.album-info{
+  display:block;
+}
+
+.list-item{
+  width: 200px;
+  display:block;
+}
+table{
+  border: 0px;
+}
+th {
+  text-align: left;
+  background-color: #000;
+  color: #fff
+}
+.trackNumber {
+  text-align:left;
+  width:20px;
+}
+
+.trackName {
+  width: 200px;
+  text-align: left;
+}
+.trackDuration {
+  width:30px;
+  text-align: right;
+}

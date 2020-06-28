@@ -50,7 +50,7 @@ public class AlbumService implements IAlbumService {
 	@Override
 	public EntityResult newestAlbums() throws OntimizeJEERuntimeException {
 		Map<String, Object> keyMap= new HashMap<String, Object>();
-		List<String> attrList = Arrays.asList(AlbumDao.ATTR_TITLE, AlbumDao.ATTR_RELEASE_YEAR,AlbumDao.ATTR_CREATION_DATE, AlbumDao.ATTR_IMAGE_PATH);
+		List<String> attrList = Arrays.asList(AlbumDao.ATTR_ALBUM_ID,AlbumDao.ATTR_TITLE, AlbumDao.ATTR_RELEASE_YEAR,AlbumDao.ATTR_CREATION_DATE, AlbumDao.ATTR_IMAGE_PATH);
 		
 		return this.daoHelper.query(this.albumDao, keyMap, attrList,"newestAlbums");
 	}

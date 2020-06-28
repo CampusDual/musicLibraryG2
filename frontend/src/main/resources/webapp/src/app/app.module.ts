@@ -10,6 +10,7 @@ import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailAlbumComponent } from './detail-album/detail-album.component';
 // Standard providers...
 // Defining custom providers (if needed)...
 export const customProviders: any = [
@@ -23,7 +24,8 @@ export const customProviders: any = [
     HttpClientModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailAlbumComponent
   ],
   bootstrap: [
     AppComponent

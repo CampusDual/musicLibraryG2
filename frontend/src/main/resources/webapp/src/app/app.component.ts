@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
   }
   private fetchNewestAlbums() {
-    this.http.get('localhost:33333/')
+    this.http.get('http://localhost:33333/albums/newestAlbums')
     .subscribe(albums => {console.log(albums)})
   }
  
