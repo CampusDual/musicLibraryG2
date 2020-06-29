@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HorizontalListComponent } from '../../shared/horizontal-list/horizontal-list.component';
 import { ListItemComponent } from '../../shared/horizontal-list/list-item/list-item.component';
 import { AlbumComponent } from '../../shared/album/album.component';
+import { HomeService } from './service/home.service';
 @NgModule({
   imports: [
     SharedModule,
@@ -17,6 +18,9 @@ import { AlbumComponent } from '../../shared/album/album.component';
     HorizontalListComponent,
     ListItemComponent,
     AlbumComponent
+  ],
+  providers: [
+    HomeService
   ]
 })
 export class HomeModule { }

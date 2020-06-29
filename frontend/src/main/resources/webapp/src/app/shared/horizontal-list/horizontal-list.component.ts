@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { hlItem} from './list-item/hl-item.model';
-import { album} from './list-item/album.model';
+import { album} from './list-item/small-album.model';
 
 @Component({
   selector: 'app-horizontal-list',

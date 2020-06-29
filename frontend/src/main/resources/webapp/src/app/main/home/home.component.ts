@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { HomeService } from './service/home.service';
 
 @Component({
   selector: 'home',
@@ -8,15 +8,17 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  albums: any;
   constructor(
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private homeService: HomeService
   ) {
   }
 
   ngOnInit() {
-   
+    
+   this.homeService.newestAlbums().subscribe();
   }
 
   navigate() {

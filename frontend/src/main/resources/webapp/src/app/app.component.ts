@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CONFIG } from './app.config';
 
 @Component({
   selector: 'o-app',
@@ -12,20 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchNewestAlbums();
+    
   }
-
-  onCreatePost(postData: {title: string; content: string }) {
-    this.http.post('localhost:33333/', postData).subscribe(responseData => {
-      console.log(responseData);
-    })
-  }
-  onFetchAlbums() {
-
-  }
-  private fetchNewestAlbums() {
-    this.http.get('http://localhost:33333/albums/newestAlbums')
-    .subscribe(albums => {console.log(albums)})
-  }
- 
 }
+
