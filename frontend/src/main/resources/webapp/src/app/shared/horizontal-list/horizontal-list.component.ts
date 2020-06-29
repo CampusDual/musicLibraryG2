@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { hlItem} from './list-item/hl-item.model';
-import { album} from './list-item/small-album.model';
 
 @Component({
   selector: 'app-horizontal-list',
@@ -8,17 +6,23 @@ import { album} from './list-item/small-album.model';
   styleUrls: ['./horizontal-list.component.scss']
 })
 export class HorizontalListComponent implements OnInit {
-  items: hlItem[] = [];
+  items: HlItem[] = [];
   @Input() displayType: string;
   constructor() { 
 
   }
 
   ngOnInit() {
-    this.items.push(new album("Meteora",2000,"../../../assets/dbImages/albums/1_cover.jpg"));
-    this.items.push(new album("Hybrid Theory",2003,"../../../assets/dbImages/albums/2_cover.jpg"));
-    this.items.push(new album("Minutes to Midnight",2007,"../../../assets/dbImages/albums/3_cover.jpg"));
-    console.log(this.items);
-  }
+    //Test components
+    
+    let meteora: HlItem;
+    let hybridTheory: HlItem;
+    let minutesToMidnight: HlItem;
+    
+    meteora = {key: {id: 1, itemType: "album"}, row1: "Meteora", row2: "Linkin Park"};
+    hybridTheory = {key: {id: 2, itemType: "album"}, row1: "Hybrid Theory", row2: "Linkin Park"};
+    minutesToMidnight = {key: {id: 3, itemType: "album"}, row1: "Minutes to Midnight", row2: "Linkin Park"};
 
+    this.items.push(meteora,hybridTheory,minutesToMidnight);
+  }
 }
