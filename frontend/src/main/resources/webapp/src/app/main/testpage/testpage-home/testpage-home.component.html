@@ -1,13 +1,13 @@
 <div class="content-wrapper">
   <div class="header">
-
-    <img src="../../../..//assets/dbImages/albums/1_cover.jpg" alt="" class="album-cover">
+    
+    <img src="{{imagePath}}" alt="" class="album-cover">
     <div class="album-info">
-      <span class="album-title">Meteora</span>
+      <span class="album-title">{{album.title}}</span>
       <br>
-      <span class="artist">Linkin Park</span>
+      <span class="artist">{{album.artist}}</span>
       <br>
-      <span class="album-year album">2003</span> • <span class="songs-number">13 songs</span> • <span class="album-duration"> 36 min.</span>
+      <span class="album-year album">{{album.creationYear}}</span> • <span class="songs-number">13 songs</span> • <span class="album-duration"> 36 min.</span>
       <br>
       <br>
       <br>
@@ -18,6 +18,23 @@
       </button>
       
     </div>
+
+    <mat-table [dataSource] = "album.songList" class="mat-elevation-z8">
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+        <mat-cell *matCellDef="let song"> {{song.track}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+        <mat-cell *matCellDef="let song">{{song.title}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef>duration</mat-header-cell>
+        <mat-cell *matCellDef="let song">{{song.duration}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </div>
   
 </div>

@@ -1,13 +1,20 @@
-.hl-wrapper{
+.hl-flex{
     display:flex;
     flex-direction: row;
-    height: 200px;
-    width: 100%;
+    
 }
+
+.hl-header{
+    display:block;
+    font-size: 30px;
+    width:100%;
+    padding: 15px;
+    
+}
+
 .list-item{
-    height: 100%;
-    width: auto;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
+    margin: 0px 10px;
+}
+.rounded{
+    border-radius:300px;
 }

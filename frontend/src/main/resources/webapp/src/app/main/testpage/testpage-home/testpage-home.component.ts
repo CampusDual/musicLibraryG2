@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DIRECTORIES } from 'app/app.config';
 
 @Component({
   selector: 'app-testpage-home',
@@ -7,13 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestpageHomeComponent implements OnInit {
   album: Album;
+  imagePath: string;
   constructor() { }
 
+
+  buildImagePath(){
+    let imagePath: string; 
+    imagePath = String(DIRECTORIES.albums+"/"+this.album.id+"_cover.jpg");
+    console.log(imagePath);
+    return imagePath;
+  }
   ngOnInit() {
     let meteora: Album; 
-        
+    
 
-    meteora = { id: 1,
+    meteora = { 
+      id: 1,
       title: "Meteora",
       artist: "Linkin Park", 
       creationYear: 2003, 
@@ -33,7 +43,10 @@ export class TestpageHomeComponent implements OnInit {
         {track: 13, title: "Numb", duration: 186}
       ]
       }
-    
+
+   
+
+  
     let hybridTheory: Album; 
     
     hybridTheory = {
@@ -41,7 +54,7 @@ export class TestpageHomeComponent implements OnInit {
       title: "Hybrid Theory",
       artist: "Linkin Park", 
       creationYear: 2003, 
-      songList: new Array(
+      songList: [
         {track: 1, title: "Papercut", duration: 185},
         {track: 2, title: "One Step Closer", duration: 157},
         {track: 3, title: "With You ", duration: 203},
@@ -54,7 +67,9 @@ export class TestpageHomeComponent implements OnInit {
         {track: 10, title: "Forgotten", duration: 194},
         {track: 11, title: "Cure for the Itch", duration: 157},
         {track: 12, title: "Pushing Me Away", duration: 191},
-        )
+        ]
       }
+      this.album = hybridTheory; 
+      this.imagePath = this.buildImagePath();
     }
   }

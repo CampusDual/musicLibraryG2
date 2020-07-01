@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { ExploreModule } from './explore/explore.module';
 import { MylistsModule } from './mylists/mylists.module';
 import { TestpageModule } from './testpage/testpage.module';
+import { SearchModule } from './search/search.module';
 
 
 export function loadHomeModule() {
@@ -24,6 +25,9 @@ export function loadTestPageModule(){
   return TestpageModule
 }
 
+export function loadSearchModule(){
+  return SearchModule
+}
 export const routes: Routes = [
   {
     path: '',
@@ -31,13 +35,11 @@ export const routes: Routes = [
     canActivate: [AuthGuardService],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
-      {
-        path: 'home',
-        loadChildren: loadHomeModule
-      },
+      { path: 'home',loadChildren: loadHomeModule},
       { path: 'explore', loadChildren: loadExploreModule},
       { path: 'mylists', loadChildren: loadMylistsModule},
-      { path: 'testpage', loadChildren: loadTestPageModule}
+      { path: 'testpage', loadChildren: loadTestPageModule},
+      { path: 'search', loadChildren: loadSearchModule}
     ]
   }
 ];

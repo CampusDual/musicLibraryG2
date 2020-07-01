@@ -1,14 +1,19 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DIRECTORIES } from '../../../app.config';
-@Component({
-  selector: 'app-list-item',
-  templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
-})
-export class ListItemComponent implements OnInit {
-  @Input() item: HlItem;
-  imagePath: string;
+import { DIRECTORIES } from 'app/app.config';
 
+@Component({
+  selector: 'app-gl-item',
+  templateUrl: './gl-item.component.html',
+  styleUrls: ['./gl-item.component.scss']
+})
+export class GridListItemComponent implements OnInit {
+  @Input() item: any;
+  imagePath:string;
+  constructor() { }
+
+  ngOnInit() {
+    this.imagePath = this.buildImagePath();
+  }
   buildImagePath(){
     let imagePath: string;
     
@@ -26,15 +31,4 @@ export class ListItemComponent implements OnInit {
    
     return imagePath;
   }
-  constructor() { }
-
-  ngOnInit() {
-    this.imagePath = this.buildImagePath();
-    console.log(this.item);
-    console.log(DIRECTORIES.albums);
-    console.log(this.imagePath);
-  }
-
-  
-
 }

@@ -1,11 +1,7 @@
 <o-app-layout show-header="yes">
   <o-app-layout-header> 
-    <mat-form-field class="search-bar">
-      <mat-label>{{ 'SEARCH' |oTranslate}}</mat-label>
-      <input matInput type="text" [(ngModel)]="value">
-      <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
-        <mat-icon>search</mat-icon>
-      </button>
-  </mat-form-field> </o-app-layout-header>
+    <app-search-bar>
+    </app-search-bar>
+    </o-app-layout-header>
   <router-outlet></router-outlet>
 </o-app-layout>

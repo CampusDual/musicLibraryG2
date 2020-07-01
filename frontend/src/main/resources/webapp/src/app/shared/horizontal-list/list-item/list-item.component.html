@@ -1,3 +1,7 @@
 <a>
-    <img src="{{imagePath}}">
+    <div class="card">
+        <img src="{{imagePath}}" [ngClass] = "{'rounded': item.key.itemType == 'artist'}" >
+        <br>
+        <strong>{{item.row1}}</strong><br>{{item.row2}}
+    </div>
 </a>

@@ -1,0 +1,6 @@
+<span class="title">{{'ALBUMS'| oTranslate}}</span>
+<mat-grid-list class ="grid" cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let item of items" >
+    <app-gl-item class="item" [item]="item"></app-gl-item>
+  </mat-grid-tile>
+</mat-grid-list>

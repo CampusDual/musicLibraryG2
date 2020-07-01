@@ -2,12 +2,16 @@ a:hover{
     filter: brightness(30%);
     transition: 0.2s;
 }
-a{ 
+
+a{
     display:block;
-    width: auto;
-    height: 100%;
 }
 img{
-    height: 100%;
-    width: auto;
+    max-width: 200px;
+}
+.card{
+    max-width: 200px;
+}
+.rounded{
+    border-radius: 300px;
 }
