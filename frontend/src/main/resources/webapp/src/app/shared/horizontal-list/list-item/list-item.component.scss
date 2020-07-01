@@ -1,6 +1,7 @@
 a:hover{
-    filter: brightness(30%);
+    filter: brightness(60%);
     transition: 0.2s;
+    cursor: pointer;
 }
 
 a{
@@ -8,6 +9,8 @@ a{
 }
 img{
     max-width: 200px;
+    -webkit-box-shadow: 3px 1px 31px -16px #333333;
+    box-shadow: 3px 1px 31px -16px #333333;
 }
 .card{
     max-width: 200px;

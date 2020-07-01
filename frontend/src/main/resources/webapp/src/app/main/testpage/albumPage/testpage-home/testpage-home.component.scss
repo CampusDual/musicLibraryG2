@@ -1,0 +1,35 @@
+.album-cover{
+    width: 200px;
+    height: auto;
+    margin: 10px;
+
+    float:left;
+}
+.header{
+    display:flex;
+    height: 220px;
+    width: 100vw;
+    background-color: #ddd;
+    
+}
+.album-title{
+    font-size:2.5em;
+}
+.album-info{
+
+    float:right;    
+    width:100%;
+    font-family: 'Arial';
+    
+
+    margin: 20px 20px;
+}
+
+
+.content-wrapper{
+    font-family: 'Zilla Slab'
+}
+
+.button {
+    margin: 30px;
+}

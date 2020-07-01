@@ -1,0 +1,24 @@
+<div class="content-wrapper">
+  <div class="header">
+    
+    <img src="{{imagePath}}" alt="" class="album-cover">
+    <div class="album-info">
+      <span class="album-title">{{album.title}}</span>
+      <br>
+      <span class="artist">{{album.artist}}</span>
+      <br>
+      <span class="album-year album">{{album.creationYear}}</span> • <span class="songs-number">{{nTracks}} {{ 'SONGS_lowercase' | oTranslate}}</span> • <span class="album-duration"> {{cumulativeDuration}} min.</span>
+      <br>
+      <br>
+      <br>
+      <button mat-raised-button color="primary">
+        <mat-icon>playlist_add</mat-icon> Add to list</button>
+      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      
+    </div>
+  </div>
+
+  <app-mat-table-flex [album]="album"></app-mat-table-flex>
+</div>

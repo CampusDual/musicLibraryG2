@@ -18,5 +18,11 @@
   "NEWEST_ARTISTS": "Newest artists",
   "EXPLORE": "Explore",
   "MYLISTS": "My lists",
-  "SEARCH": "Search"
+  "SEARCH": "Search",
+
+  "TITLE": "Title",
+  "ALBUM": "Album",
+  "ARTIST": "Artist",
+  "DURATION": "Duration",
+  "SONGS_lowercase": "songs"
 }

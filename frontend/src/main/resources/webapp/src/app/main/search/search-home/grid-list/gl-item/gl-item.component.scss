@@ -1,10 +1,16 @@
 .card{
     display:flex;
-    background-color: #673AB7;
+    background-color: #fff;
     padding: 0px 30px 0px 0px;
     align-items: center;
-    border-radius:5px;
+    border-radius:2px;
     overflow: hidden;
+    width: 300px;
+    margin:5px;
+
+    -webkit-box-shadow: 0px 1px 24px -14px #333333;
+box-shadow: 0px 1px 24px -14px #333333;
+
 }
 .text{
     display:flex;

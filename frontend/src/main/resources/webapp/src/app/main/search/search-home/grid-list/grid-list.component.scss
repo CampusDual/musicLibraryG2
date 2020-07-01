@@ -3,12 +3,15 @@
     padding: 0px 30px 0px 0px;
 }
 .item{
+    display:grid;
     width: 200px;
 }
 .title{
     font-size: 32px;
     font-weight: bold;
 }
-.grid{
-    min-width: 450px;
+.wrapper{
+    display:grid;
+    grid-template-columns: 340px 340px;
+    
 }

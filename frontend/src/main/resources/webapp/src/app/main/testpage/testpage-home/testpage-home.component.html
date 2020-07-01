@@ -1,40 +1,10 @@
-<div class="content-wrapper">
-  <div class="header">
+<div class="header">
     
-    <img src="{{imagePath}}" alt="" class="album-cover">
-    <div class="album-info">
-      <span class="album-title">{{album.title}}</span>
-      <br>
-      <span class="artist">{{album.artist}}</span>
-      <br>
-      <span class="album-year album">{{album.creationYear}}</span> • <span class="songs-number">13 songs</span> • <span class="album-duration"> 36 min.</span>
-      <br>
-      <br>
-      <br>
-      <button mat-raised-button color="primary">
-        <mat-icon>playlist_add</mat-icon> Add to list</button>
-      <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      
-    </div>
-
-    <mat-table [dataSource] = "album.songList" class="mat-elevation-z8">
-      <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
-        <mat-cell *matCellDef="let song"> {{song.track}}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="title">
-        <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-        <mat-cell *matCellDef="let song">{{song.title}}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="duration">
-        <mat-header-cell *matHeaderCellDef>duration</mat-header-cell>
-        <mat-cell *matCellDef="let song">{{song.duration}}</mat-cell>
-      </ng-container>
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
+  <img src="{{imagePath}}" alt="" class="artist-portrait">
+  <div class="artist-info">
+    <span class="artist-name">{{artist.name}}</span>
+    <br>
+    <br>>
+    
   </div>
-  
 </div>

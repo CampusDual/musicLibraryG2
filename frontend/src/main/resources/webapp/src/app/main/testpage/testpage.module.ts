@@ -5,6 +5,7 @@ import { TestpageRoutingModule } from './testpage-routing.module';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { TestpageHomeComponent } from './testpage-home/testpage-home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableFlexComponent } from './testpage-home/mat-table-flex/mat-table-flex.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   declarations: [
-    TestpageHomeComponent
+    TestpageHomeComponent,
+    MatTableFlexComponent
   ]
 })
 export class TestpageModule { }

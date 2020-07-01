@@ -1,0 +1,24 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="track">
+    <mat-header-cell class="track" *matHeaderCellDef> # </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.track}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> {{'TITLE' | oTranslate}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="duration">
+    <mat-header-cell *matHeaderCellDef> {{'DURATION' | oTranslate}} </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{secondsToTrackDuration(element.duration)}} </mat-cell>
+  </ng-container>
+
+  
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
