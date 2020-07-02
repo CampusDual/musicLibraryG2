@@ -5,7 +5,6 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HorizontalListComponent } from '../../shared/horizontal-list/horizontal-list.component';
 import { ListItemComponent } from '../../shared/horizontal-list/list-item/list-item.component';
-import { AlbumComponent } from '../../shared/album/album.component';
 import { HomeService } from './service/home.service';
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { HomeService } from './service/home.service';
   declarations: [
     HomeComponent,
     HorizontalListComponent,
-    ListItemComponent,
-    AlbumComponent
+    ListItemComponent
   ],
   providers: [
     HomeService

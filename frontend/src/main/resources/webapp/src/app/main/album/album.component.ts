@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DIRECTORIES } from 'app/app.config';
 
 @Component({
-  selector: 'app-testpage-home',
-  templateUrl: './testpage-home.component.html',
-  styleUrls: ['./testpage-home.component.scss']
+  selector: 'app-album',
+  templateUrl: './album.component.html',
+  styleUrls: ['./album.component.scss']
 })
-export class TestpageHomeComponent implements OnInit {
-  album: Album;
+export class AlbumComponent implements OnInit {
+  @Input()album: Album;
   imagePath: string;
   nTracks: number;
   cumulativeDuration: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { HomeService } from '../service/home.service'
 @Component({
   selector: 'app-horizontal-list',
   templateUrl: './horizontal-list.component.html',
@@ -7,15 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HorizontalListComponent implements OnInit {
   @Input() title: string;
-  @Input() dataSource: HlItem[];
+  @Input() restInput: string;
+  items: HlItem[] = [];
   @Input() displayType: string;
-  constructor() { 
+  constructor(private homeService: HomeService ) { 
 
   }
 
   ngOnInit() {
     //Test components
-    
+    console.log(this.homeService.newestAlbums());
     let meteora: HlItem;
     let hybridTheory: HlItem;
     let minutesToMidnight: HlItem;
@@ -24,6 +25,6 @@ export class HorizontalListComponent implements OnInit {
     hybridTheory = {key: {id: 2, itemType: "album"}, row1: "Hybrid Theory", row2: "Linkin Park"};
     minutesToMidnight = {key: {id: 3, itemType: "album"}, row1: "Minutes to Midnight", row2: "Linkin Park"};
     
-    this.dataSource.push(meteora,hybridTheory,minutesToMidnight);
+    this.items.push(meteora,hybridTheory,minutesToMidnight);
   }
 }

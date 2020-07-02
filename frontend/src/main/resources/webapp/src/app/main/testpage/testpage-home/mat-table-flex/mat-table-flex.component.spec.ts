@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestpageHomeComponent } from './testpage-home.component';
+import { MatTableFlexComponent } from './mat-table-flex.component';
 
-describe('TestpageHomeComponent', () => {
-  let component: TestpageHomeComponent;
-  let fixture: ComponentFixture<TestpageHomeComponent>;
+describe('MatTableFlexComponent', () => {
+  let component: MatTableFlexComponent;
+  let fixture: ComponentFixture<MatTableFlexComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestpageHomeComponent ]
+      declarations: [ MatTableFlexComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestpageHomeComponent);
+    fixture = TestBed.createComponent(MatTableFlexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

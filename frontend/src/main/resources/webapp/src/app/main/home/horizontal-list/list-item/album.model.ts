@@ -11,4 +11,11 @@ interface song {
     title: string; 
     duration: number;
 }
-   
+
+interface Artist {
+    id: number;
+    itemType: string;
+    name: string;
+    bio: string;
+}
+
