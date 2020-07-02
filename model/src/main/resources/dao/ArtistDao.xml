@@ -5,10 +5,23 @@
  catalog="" schema="${mainschema}" table="artist"
  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
  <DeleteKeys>
-  <Column>ID</Column>
+  <Column>artist_id</Column>
  </DeleteKeys>
  <UpdateKeys>
-  <Column>ID</Column>
+  <Column>artist_id</Column>
  </UpdateKeys>
- <GeneratedKey>ID</GeneratedKey>
+ <GeneratedKey>artist_id</GeneratedKey>
+ <Queries>
+ 	<Query id = "searchArtist">
+ 		<Sentence>
+ 			<![CDATA[
+ 			SELECT
+ 			#COLUMNS#
+ 			FROM
+ 			${mainschema}.artist a  
+ 			#WHERE#
+ 			]]>
+ 	</Sentence>
+ 	</Query>	
+ </Queries>
 </JdbcEntitySetup>

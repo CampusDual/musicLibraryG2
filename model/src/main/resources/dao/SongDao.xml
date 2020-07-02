@@ -33,17 +33,19 @@
  	</Sentence>
  	</Query>
  	<Query id="searchSong">
- 		<AmbiguousColumns>
- 			<AmbiguousColumn name="song_id" prefix="s"/>
- 		</AmbiguousColumns>
+ 	<AmbiguousColumns>
+ 			<AmbiguousColumn name="name_art" prefix="ar"
+ 				databaseName = "name"/>
+ 	</AmbiguousColumns>
  		<Sentence>
  		<![CDATA[
  	SELECT
  		#COLUMNS#
  	FROM
  		${mainschema}.song s 
- 		INNER JOIN album_song als ON s.song_id = als.song_id 
-		INNER JOIN album a ON als.album_id = a.album_id 
+ 		INNER JOIN album_song als ON s.song_id = als.song_id
+ 		INNER_JOIN album a ON a.album_id = als.album_id
+ 		INNER JOIN artist ar ON ar.artist_id = a.artist_id
  	#WHERE#
  		
  	]]>

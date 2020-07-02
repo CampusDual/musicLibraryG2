@@ -1,8 +1,11 @@
 package com.ontimize.harmony.ws.core.rest;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +34,18 @@ public class AlbumRestController extends ORestController<IAlbumService> {
 		
 		return albumService.newestAlbums();
 	}
-
+	
+	@RequestMapping(value = "searchAlbum", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult postSearchAlbum(@RequestBody Map<String, Object> req) {
+		
+		return albumService.searchAlbum(req);
+		
+	}
+	
+	@RequestMapping(value = "albumSongs", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult postAlbumSong(@RequestBody Map<String, Object> req) {
+		
+		return albumService.albumSongs(req);
+		
+	}
 }

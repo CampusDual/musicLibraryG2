@@ -1,5 +1,7 @@
 package com.ontimize.harmony.model.core.service;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,10 +10,14 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.ontimize.db.EntityResult;
+import com.ontimize.db.SQLStatementBuilder;
+import com.ontimize.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.harmony.api.core.service.IArtistService;
 import com.ontimize.harmony.model.core.dao.ArtistDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
+import com.ontimize.db.SQLStatementBuilder.BasicField;
+import com.ontimize.db.SQLStatementBuilder.BasicOperator;
 
 @Service("ArtistService")
 @Lazy
@@ -44,4 +50,41 @@ public class ArtistService implements IArtistService {
 		return this.daoHelper.delete(this.artistDao, keyMap);
 	}
 
+	@Override
+	public EntityResult artistSearch(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+		try {
+			List<String> columns = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_DESCRIPTION,ArtistDao.ATTR_CREATION_YEAR);
+			Map<String, Object> filter = (Map<String, Object>) keyMap.get("filter");
+			String searchName = (String) filter.get("name");
+			Map<String, Object> key = new HashMap<String, Object>();
+			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(artistDao.ATTR_NAME, searchName));
+			return this.daoHelper.query(this.artistDao,key, columns);
+		} catch (Exception e) {
+			e.printStackTrace();
+			EntityResult res = new EntityResult();
+			res.setCode(EntityResult.OPERATION_WRONG);
+			return res;
+			
+		}
+	}
+
+
+	
+	
+	private BasicExpression searchLike(String nameCol, String searchTerm) {
+		
+		BasicField param = new BasicField(nameCol);
+		BasicExpression bexp = new BasicExpression(param,BasicOperator.LIKE_OP,'%'+searchTerm+'%');
+		return bexp;
+	}
+
+
+
+
+
+
 }
+
+
+
+
