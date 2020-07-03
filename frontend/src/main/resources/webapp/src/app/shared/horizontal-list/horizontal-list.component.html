@@ -1,8 +1,8 @@
   <div class="hl-header">
-    <span class="header-title">{{title}}</span>
+    <span class="header-title" (click)="test()">{{title}}</span>
   </div>
   <hr>
-    <div class="hl-flex">
-      <app-list-item  *ngFor="let item of items"  class="list-item" [item]="item"></app-list-item>
+    <div class="hl-flex" >
+      <app-list-item *ngFor="let item of dataSource" style="{{style}}" class="list-item" [item]="item" (click)="test()"></app-list-item>
     </div>
 

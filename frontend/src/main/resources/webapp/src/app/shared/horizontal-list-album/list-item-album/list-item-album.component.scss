@@ -1,0 +1,18 @@
+img:hover{
+    filter: brightness(60%);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+img{
+    max-width: 200px;
+    -webkit-box-shadow: 3px 1px 31px -16px #333333;
+    box-shadow: 3px 1px 31px -16px #333333;
+    position: relative;
+}
+.card{
+    max-width: 200px;
+}
+.rounded{
+    border-radius: 300px;
+}

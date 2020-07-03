@@ -1,12 +1,16 @@
-import { OntimizeEEService, Observable } from 'ontimize-web-ngx';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { CONFIG } from '../../../app.config';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { OntimizeEEService} from 'ontimize-web-ngx';
+
 
 @Injectable()
 export class HomeService extends OntimizeEEService {
-    newestAlbums() {
+
+    
+        newestAlbums(): Observable<any> {
         const url = CONFIG.apiEndpoint + '/albums/newestAlbums';
         var options = {
             headers: this.buildHeaders()
@@ -19,10 +23,10 @@ export class HomeService extends OntimizeEEService {
                 self.parseUnsuccessfulQueryResponse(error, _innerObserver);
             }, function () { return _innerObserver.complete(); });
         });
-        return dataObservable.pipe(share());
+        
+        return dataObservable.pipe(share()); 
     }
-
-    newestArtists() {
+   /* newestArtists() {
         const url = CONFIG.apiEndpoint + '/artists/newestArtists'; 
         var options = {
             headers: this.buildHeaders()
@@ -36,7 +40,7 @@ export class HomeService extends OntimizeEEService {
             }, function () { return _innerObserver.complete(); })
         })
         return dataObservable.pipe(share());
-    }
+    }*/
 
     buildHeaders() {
         const appData = JSON.parse(localStorage.getItem(CONFIG.uuid));
