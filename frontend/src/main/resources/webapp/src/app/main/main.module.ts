@@ -15,7 +15,6 @@ import { MatAlbumTable } from './album/mat-album-table/mat-album-table.component
   declarations: [
     MainComponent,
     SearchBarComponent,
-    AlbumComponent,
     MatAlbumTable
   ]
 })

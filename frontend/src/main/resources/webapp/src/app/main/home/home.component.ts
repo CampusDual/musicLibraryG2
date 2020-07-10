@@ -9,7 +9,7 @@ import { element } from '@angular/core/src/render3/instructions';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  albumDataSource?: HlItemAlbum[];
+  albumDataSource?: HlItem[];
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
    console.log(this.dataArray);
    this.dataArray.forEach(item => {
     let cHlItem: HlItem;
-    cHlItem = {key: {id: item.album_id, itemType: "album"}, row1: item.title, row2: String(item.release_year)};
+    cHlItem = {key: {id: item.id, itemType: "album"}, row1: item.title, row2: String(item.creationYear)};
 
     this.albumDataSource.push(cHlItem)
    })
