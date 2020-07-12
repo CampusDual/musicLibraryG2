@@ -13,6 +13,7 @@ import com.ontimize.db.EntityResult;
 import com.ontimize.db.SQLStatementBuilder;
 import com.ontimize.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.harmony.api.core.service.IArtistService;
+import com.ontimize.harmony.model.core.dao.AlbumDao;
 import com.ontimize.harmony.model.core.dao.ArtistDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
@@ -78,6 +79,16 @@ public class ArtistService implements IArtistService {
 		return bexp;
 	}
 
+	@Override
+	public EntityResult newestArtists() {
+		Map<String, Object> keyMap= new HashMap<String, Object>();
+		List<String> attrList = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_CREATION_YEAR);
+		
+		return this.daoHelper.query(this.artistDao, keyMap, attrList,"newestAlbums");
+		
+	}
+
+	
 
 
 

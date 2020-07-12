@@ -12,7 +12,7 @@ export class ListItemComponent implements OnInit {
   buildImagePath(){
     let imagePath: string;
     
-    switch(this.item.key.itemType){
+    switch(this.item.itemType){
       case "album": 
         imagePath = DIRECTORIES.albums;
 
@@ -21,7 +21,7 @@ export class ListItemComponent implements OnInit {
         imagePath = DIRECTORIES.artists;
       break;
     }
-    imagePath += String("/"+this.item.key.id+"_cover.jpg");
+    imagePath += String("/"+this.item.id+"_cover.jpg");
   
    
     return imagePath;
@@ -32,6 +32,6 @@ export class ListItemComponent implements OnInit {
     this.imagePath = this.buildImagePath();
   }
 
-  
+ 
 
 }

@@ -1,13 +1,13 @@
 
 <div class="bg">
-  <div class="banner">
-    <div class="gradient"></div>
+  <div class="white"></div>
+  <div class="banner" (click)="caca()">
       <div class="container">
         
-        <h1><span class="title">Go for the encore.</span></h1>
-          <span class="banner-desc">Harmony is here to help you reach new frontiers in musical knowledge.</span>
+        <h1><span class="title">{{'HOME_TITLE' | oTranslate}}</span></h1>
+          <span class="banner-desc">{{'HOME_SUBTITLE' | oTranslate}}</span>
       </div>
   </div>
-  <!--<app-horizontal-list title = "{{'NEWEST_ALBUMS' | oTranslate}}" [dataSource]= "albumDataSource"></app-horizontal-list>-->
-  <!--<app-horizontal-list title = "{{'NEWEST_ARTISTS' | oTranslate}}" [dataSource]= "artistDataSource"displayType="round"></app-horizontal-list> -->
-</div>
+  <app-horizontal-list title = "{{'NEWEST_ALBUMS' | oTranslate}}" [dataSource]= "albumDataSource"></app-horizontal-list>
+  <app-horizontal-list title = "{{'NEWEST_ARTISTS' | oTranslate}}" [dataSource]= "artistDataSource" displayType="round"></app-horizontal-list>
+</div>  

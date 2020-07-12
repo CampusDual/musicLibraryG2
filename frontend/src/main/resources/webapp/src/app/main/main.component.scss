@@ -1,4 +1,19 @@
 .search-bar{
-    margin-left: 20px;
     width: 300px;
+    position: absolute;
+}  
+.title{
+    margin-left:10px;
+    
+    display:flex;
+    
+}
+o-app-layout-header {
+    display:inline-block;
+}
+.container{
+    display:flex;
+    justify-content: center;
+    margin:0px;
+    align-items: center;
 }

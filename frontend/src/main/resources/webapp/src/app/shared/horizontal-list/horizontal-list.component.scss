@@ -1,7 +1,7 @@
 .hl-flex{
     display:flex;
     flex-direction: row;
-    
+        
 }
 
 .hl-header{
@@ -11,10 +11,34 @@
     padding: 15px;
     
 }
-
+.header-title{
+    text-shadow: 2px 2px 9px rgba(0,0,0,0.27);
+    
+}
 .list-item{
     margin: 0px 10px;
 }
 .rounded{
     border-radius:300px;
+}
+
+a:hover{
+    filter: brightness(60%);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+a{
+    display:block;
+}
+img{
+    max-width: 200px;
+    
+}
+.card{
+    max-width: 200px;
+    margin: 10px;
+}
+.rounded{
+    border-radius: 300px;
 }

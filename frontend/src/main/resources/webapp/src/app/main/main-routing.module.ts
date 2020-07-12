@@ -7,8 +7,8 @@ import { HomeModule } from './home/home.module';
 import { ExploreModule } from './explore/explore.module';
 import { MylistsModule } from './mylists/mylists.module';
 import { TestpageModule } from './testpage/testpage.module';
-import { SearchModule } from './search/search.module';
 import { AlbumComponent } from './album/album.component';
+import { AlbumModule } from './album/album.module';
 
 
 export function loadHomeModule() {
@@ -25,13 +25,8 @@ export function loadMylistsModule(){
 export function loadTestPageModule(){
   return TestpageModule
 }
-
-export function loadSearchModule(){
-  return SearchModule
-}
-
-export function loadAlbumPage(){
-  return AlbumComponent
+export function loadAlbumModule(){
+  return AlbumModule
 }
 export const routes: Routes = [
   {
@@ -44,8 +39,7 @@ export const routes: Routes = [
       { path: 'explore', loadChildren: loadExploreModule},
       { path: 'mylists', loadChildren: loadMylistsModule},
       { path: 'testpage', loadChildren: loadTestPageModule},
-      { path: 'search', loadChildren: loadSearchModule},
-      { path: 'album', loadChildren: loadAlbumPage}
+      { path: 'album/:id', loadChildren: loadAlbumModule}
     ]
   }
 ];

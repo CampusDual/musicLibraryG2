@@ -13,9 +13,7 @@ import { HomeService } from './service/home.service';
     HomeRoutingModule
   ],
   declarations: [
-    HomeComponent,
-    HorizontalListComponent,
-    ListItemComponent
+    HomeComponent
   ],
   providers: [
     HomeService
