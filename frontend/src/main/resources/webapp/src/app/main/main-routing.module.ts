@@ -9,6 +9,7 @@ import { MylistsModule } from './mylists/mylists.module';
 import { TestpageModule } from './testpage/testpage.module';
 import { AlbumComponent } from './album/album.component';
 import { AlbumModule } from './album/album.module';
+import { ArtistModule } from './artist/artist.module';
 
 
 export function loadHomeModule() {
@@ -28,6 +29,9 @@ export function loadTestPageModule(){
 export function loadAlbumModule(){
   return AlbumModule
 }
+export function loadArtistModule(){
+  return ArtistModule 
+}
 export const routes: Routes = [
   {
     path: '',
@@ -39,7 +43,8 @@ export const routes: Routes = [
       { path: 'explore', loadChildren: loadExploreModule},
       { path: 'mylists', loadChildren: loadMylistsModule},
       { path: 'testpage', loadChildren: loadTestPageModule},
-      { path: 'album/:id', loadChildren: loadAlbumModule}
+      { path: 'album/:id', loadChildren: loadAlbumModule},
+      { path: 'artist/:id', loadChildren: loadArtistModule}
     ]
   }
 ];

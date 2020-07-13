@@ -8,6 +8,10 @@
           <span class="banner-desc">{{'HOME_SUBTITLE' | oTranslate}}</span>
       </div>
   </div>
-  <app-horizontal-list title = "{{'NEWEST_ALBUMS' | oTranslate}}" [dataSource]= "albumDataSource"></app-horizontal-list>
-  <app-horizontal-list title = "{{'NEWEST_ARTISTS' | oTranslate}}" [dataSource]= "artistDataSource" displayType="round"></app-horizontal-list>
-</div>  
+  <div class="item-container">
+    <app-horizontal-list title = "{{'NEWEST_ALBUMS' | oTranslate}}" [dataSource]= "albumDataSource"></app-horizontal-list>
+  </div>
+  <div class="item-container">
+    <app-horizontal-list title = "{{'NEWEST_ARTISTS' | oTranslate}}" [dataSource]= "artistDataSource" displayType="round"></app-horizontal-list>
+  </div>
+</div>

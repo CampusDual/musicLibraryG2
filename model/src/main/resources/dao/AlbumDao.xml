@@ -39,9 +39,9 @@
 		]]>
 		</Sentence>
 		</Query>
-		<Query id = "albumSong">
+		<Query id = "albumSongs">
 		<AmbiguousColumns>
-			<AmbiguousColumn name="artist_id" prefix="a"/>
+			<AmbiguousColumn name="artist_id" prefix="ar"/>
 			<AmbiguousColumn name="song_id" prefix="s"/>
 			<AmbiguousColumn name="album_id" prefix="a"/>
 		</AmbiguousColumns>
@@ -54,6 +54,7 @@
 				INNER JOIN album_song als ON als.album_id = a.album_id
 				INNER JOIN song s on s.song_id = als.song_id
 			#WHERE#
+			ORDER BY als.track_number asc
 		]]>
 		</Sentence>
 		</Query>

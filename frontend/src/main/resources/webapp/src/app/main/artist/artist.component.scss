@@ -1,0 +1,36 @@
+.bg {
+}
+h1{
+    padding:20px;
+}
+.banner {
+    background-image:
+    linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
+    url('../../../assets/images/artists/1_banner.png'); 
+    background-position: top;
+    width: 100%;
+    height: 400px;
+    background-size: cover; 
+    position: relative;
+    overflow: hidden;
+
+}
+
+// ../../../assets/images/banners/Banner1.png
+.title{
+    font-size: 50px;
+    position: absolute;
+    bottom: 13px;
+    left: 16px;
+}
+.description{
+    background-color: black;
+    padding: 20px;
+    font-size: 13px;
+}
+.albums-container{
+    background-color: black;
+    margin-top: 10px;
+    padding:20px;
+
+}

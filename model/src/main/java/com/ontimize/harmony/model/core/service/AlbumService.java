@@ -74,7 +74,7 @@ public class AlbumService implements IAlbumService {
 			String searchName = (String) filter.get("title");
 			Map<String, Object> key = new HashMap<String, Object>();
 			
-			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(albumDao.ATTR_TITLE, searchName));
+			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(AlbumDao.ATTR_TITLE, searchName));
 			return this.daoHelper.query(this.albumDao, key, columns);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -94,7 +94,7 @@ public class AlbumService implements IAlbumService {
 			
 			int id = (int) filter.get("id");
 			Map<String, Object> key = new HashMap<String, Object>();
-			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,searchById(albumDao.ATTR_ALBUM_ID, id));
+			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,searchById(AlbumDao.ATTR_ALBUM_ID, id));
 			return this.daoHelper.query(this.albumDao, key, columns);
 			
 		} catch (Exception e) {

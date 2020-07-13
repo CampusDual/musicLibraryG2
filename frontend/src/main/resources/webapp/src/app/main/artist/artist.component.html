@@ -1,0 +1,18 @@
+
+<div class="bg">
+  <div class="white"></div>
+  <div class="banner">
+      
+        
+        <h1><span class="title">{{artist.name}}</span></h1>
+
+        
+      
+  </div>
+  <div class="description">
+    <h3 class="description-header">Description:</h3>
+    <p style="white-space:pre-wrap;">{{artist.description}}</p></div>
+  <div class="albums-container">
+  <app-horizontal-list title = "{{'ALBUMS' | oTranslate}}" [dataSource]= "albumsDataSource"></app-horizontal-list>
+</div>
+</div>
