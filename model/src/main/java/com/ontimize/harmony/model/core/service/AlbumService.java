@@ -92,7 +92,7 @@ public class AlbumService implements IAlbumService {
 			List<String> columns = Arrays.asList(SongDao.ATTR_NAME,SongDao.ATTR_DURATION, AlbumSongDao.ATTR_TRACK_NUMBER);
 			Map<String,Object> filter = (Map<String, Object>) req.get("filter");
 			
-			int id = (int) filter.get("id");
+			int id = Integer.parseInt((String) filter.get("id"));
 			Map<String, Object> key = new HashMap<String, Object>();
 			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,searchById(AlbumDao.ATTR_ALBUM_ID, id));
 			return this.daoHelper.query(this.albumDao, key, columns);

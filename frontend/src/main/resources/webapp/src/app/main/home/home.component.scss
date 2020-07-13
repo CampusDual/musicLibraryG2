@@ -19,7 +19,7 @@ h1{
 // ../../../assets/images/banners/Banner1.png
 .title{
     font-size: 50px;
-    
+    margin-bottom: 20px;
 }
 .container {
     position: absolute;
@@ -33,6 +33,11 @@ h1{
 .item-container {
     background-color: black;
     margin-left: 0px;
-    margin-top: 10px;
-    padding: 10px;
+    margin-top: 20px;
+    padding: 20px;
+}
+.inline {
+    display:inline-block;
+    width: auto;
+    margin-right:20px;
 }

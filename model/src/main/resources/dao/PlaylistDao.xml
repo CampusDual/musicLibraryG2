@@ -12,4 +12,21 @@
   <Column>ID</Column>
  </UpdateKeys>
  <GeneratedKey>ID</GeneratedKey>
+ <Queries>
+		<Query id="newestPlaylists">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="playlist_id" prefix="p"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.PLAYLIST p
+				#WHERE#
+				
+				]]>
+			</Sentence>
+		</Query>
+</Queries>
 </JdbcEntitySetup>

@@ -11,7 +11,10 @@
   <div class="item-container">
     <app-horizontal-list title = "{{'NEWEST_ALBUMS' | oTranslate}}" [dataSource]= "albumDataSource"></app-horizontal-list>
   </div>
-  <div class="item-container">
+  <div class="item-container inline">
     <app-horizontal-list title = "{{'NEWEST_ARTISTS' | oTranslate}}" [dataSource]= "artistDataSource" displayType="round"></app-horizontal-list>
+  </div>
+  <div class="item-container inline">
+    <app-horizontal-list title = "{{'NEWEST_PLAYLISTS' | oTranslate}}" [dataSource]= "playlistDataSource" displayType="playlist"></app-horizontal-list>
   </div>
 </div>

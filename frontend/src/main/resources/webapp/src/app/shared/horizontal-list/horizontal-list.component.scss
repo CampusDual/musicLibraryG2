@@ -8,8 +8,9 @@
     display:block;
     font-size: 30px;
     width:100%;
-    padding: 15px;
-    
+    padding: 15px 0;
+    margin-bottom: 20px;
+
 }
 .header-title{
     text-shadow: 2px 2px 9px rgba(0,0,0,0.27);
@@ -18,10 +19,12 @@
 .list-item{
     margin: 0px 10px;
 }
-.rounded{
+.round{
     border-radius:300px;
 }
-
+.playlist{
+    box-shadow: 8px -8px 0px 0px #474747, 16px -16px 0px 0px #383838;
+}
 a:hover{
     filter: brightness(60%);
     transition: 0.2s;
@@ -33,7 +36,7 @@ a{
 }
 img{
     max-width: 200px;
-    
+    //box-shadow: 0px 0px 21px 1px rgba(255,255,255,0.34);
 }
 .card{
     max-width: 200px;

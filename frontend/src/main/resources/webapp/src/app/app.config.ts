@@ -34,5 +34,6 @@ export const CONFIG: Config = {
 };
 export const DIRECTORIES = {
   albums: '/assets/images/albums',
-  artists: '/assets/images/artists'
+  artists: '/assets/images/artists',
+  playlists: '/assets/images/playlists'
 }

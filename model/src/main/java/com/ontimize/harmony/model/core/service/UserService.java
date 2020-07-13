@@ -32,6 +32,8 @@ public class UserService implements IUserService {
 
 	public EntityResult userQuery(Map<?, ?> keyMap, List<?> attrList) {
 		return this.daoHelper.query(userDao, keyMap, attrList);
+		//TODO update so that the only information accessible is the current user's
+		//String email = this.daoHelper.getUser().getUsername();
 	}
 
 	public EntityResult userInsert(Map<?, ?> attrMap) {
@@ -40,6 +42,9 @@ public class UserService implements IUserService {
 
 	public EntityResult userUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap) {
 		return this.daoHelper.update(userDao, attrMap, keyMap);
+		//vamos a necesitar la id de usuario, filtramos por ella porque si no
+		//sería un riesgo de seguridad. hay que asegurarse de que no se puede enviar un id de usuario distinto.
+		
 	}
 
 	public EntityResult userDelete(Map<?, ?> keyMap) {

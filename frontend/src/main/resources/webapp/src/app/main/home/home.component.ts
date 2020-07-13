@@ -11,7 +11,7 @@ import { element } from '@angular/core/src/render3/instructions';
 export class HomeComponent implements OnInit {
   albumDataSource?: HlItem[] = [];
   artistDataSource?: HlItem[] = [];
-  
+  playlistDataSource?: HlItem[] = [];
   constructor(
     private router: Router,
     private actRoute: ActivatedRoute,
@@ -57,6 +57,21 @@ export class HomeComponent implements OnInit {
           this.artistDataSource.push(genericItem);
         })
       })
+
+      this.homeService.newestPlaylists().subscribe(playlist => {
+        playlist["data"].forEach(element => {
+          let genericItem = {
+            id: element["playlist_id"],
+            itemType: "playlist",
+            row1: element["name"]
+          }
+          this.playlistDataSource.push(genericItem);
+        });
+
+       
+      })
+    
+      console.log(this.playlistDataSource);
     /*let meteora: HlItem = {id: 1, itemType: "album", row1: "Hybrid Theory", row2: "Linkin Park"};
     let hybridTheory: HlItem =  {id: 2, itemType: "album", row1: "Hybrid Theory", row2: "Linkin Park"};
     let minutesToMidnight: HlItem = {id: 3, itemType: "album", row1: "Minutes to Midnight", row2: "Linkin Park"};

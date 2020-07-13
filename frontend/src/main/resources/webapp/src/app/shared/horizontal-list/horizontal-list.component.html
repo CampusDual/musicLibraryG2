@@ -12,7 +12,7 @@
       <a>
         <img
          *ngIf="item" src={{getDirectory(item)}}
-         [ngClass]="{'round': displayType === 'round'}" 
+         [ngClass]="{'round': displayType === 'round', 'playlist': displayType === 'playlist'}" 
          (click)="goToPage(item)">
       </a>
       <strong *ngIf="item['row1']">{{item["row1"]}}</strong><br><span>{{item['row2']}}</span>  

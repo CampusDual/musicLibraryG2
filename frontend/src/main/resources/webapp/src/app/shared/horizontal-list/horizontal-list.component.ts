@@ -42,7 +42,13 @@ export class HorizontalListComponent implements OnInit {
       
       directory = DIRECTORIES.artists + "/"+ item.id + "_cover.png"
     }
+    
+    if(item.itemType === "playlist"){
+      directory = DIRECTORIES.playlists + "/"+ item.id + "_cover.png"
+    }
     return directory;
+
+    
   }
   logTest(){
     console.log(this.dataSource);

@@ -13,7 +13,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 @ConfigurationFile(configurationFile = "dao/PlaylistDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class PlaylistDao extends OntimizeJdbcDaoSupport {
 
- public static final String ATTR_PLAYLIST_ID = "album_id";
+ public static final String ATTR_PLAYLIST_ID = "playlist_id";
  public static final String ATTR_NAME = "name";
  public static final String ATTR_DESCRIPTION= "description";
  public static final String ATTR_CREATION_DATE = "creation_date";

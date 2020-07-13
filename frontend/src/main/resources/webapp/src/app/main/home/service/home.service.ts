@@ -38,6 +38,22 @@ export class HomeService extends OntimizeEEService {
         return dataObservable.pipe(share());
     }
 
+    newestPlaylists(){
+            const url = CONFIG.apiEndpoint + '/playlist/newestPlaylists'; 
+            var options = {
+                headers: this.buildHeaders()
+            };
+            var self = this;
+            var dataObservable = new Observable(function (_innerObserver) {
+                self.httpClient.get(url, options).subscribe(function (resp) {
+                    self.parseSuccessfulQueryResponse(resp,_innerObserver);
+                }, function (error) {
+                    self.parseUnsuccessfulQueryResponse(error, _innerObserver);
+                }, function () { return _innerObserver.complete(); })
+            })
+            return dataObservable.pipe(share());
+    }
+
     buildHeaders() {
         const appData = JSON.parse(localStorage.getItem(CONFIG.uuid));
         return new HttpHeaders({

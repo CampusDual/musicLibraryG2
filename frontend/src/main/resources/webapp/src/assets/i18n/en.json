@@ -27,5 +27,7 @@
   "ALBUMS": "Albums",
   "ARTIST": "Artist",
   "DURATION": "Duration",
-  "SONGS_lowercase": "songs"
+  "SONGS_lowercase": "songs",
+
+  "NEWEST_PLAYLISTS": "Most recently added playlists"
 }
