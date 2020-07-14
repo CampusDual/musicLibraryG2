@@ -1,0 +1,31 @@
+.user-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.status{
+    position: relative;
+    left:0px;
+    bottom:13px;
+    background-color: #0c0;
+    border-radius:10px;
+    border: 1px solid white;
+    height: 8px;
+    width: 8px;
+
+}
+
+.container{
+    float: right;
+    position: absolute;
+    right: 60px;
+    top:13px;
+
+    
+}
+
+.container:hover{
+    transition: 0.2s;
+    filter: brightness(0.6);
+    cursor:pointer;
+}

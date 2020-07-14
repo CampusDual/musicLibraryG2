@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserInfo } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +8,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  constructor() { }
+  private user: UserInfo;
+  constructor(
+    private router: Router,
+    private actRoute: ActivatedRoute
+    
+  ) {}
 
   ngOnInit() {
   }
-
+  goToUserPanel(){
+    this.router.navigate(['/main/', String('user')])
+  }
 }

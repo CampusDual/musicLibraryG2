@@ -1,0 +1,48 @@
+.user-avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    margin:20px;
+}
+mat-form-field{
+    margin:10px;
+}
+.header-username{
+    position: relative;
+    
+    left:200px;
+    bottom:140px;
+    display:inline;
+    
+    margin:10px;
+}
+.user-info{
+    background-color: black;
+    height: 190px;
+}
+.user-form{
+    background-color: black;
+    margin-top:10px;
+    padding-top:1px;
+    padding:10px;
+}
+.user-form> h2 {
+    margin-top: 20px;
+    margin-left:10px;
+}
+.button-container{
+    margin: 20px;
+}
+.button-container > button {
+    margin-left: 10px;
+    margin-bottom: 20px;
+
+}
+.focusButton {
+
+}
+.account-deletion{
+    margin-top:10px;
+    padding:20px;
+    background-color:black;
+}
