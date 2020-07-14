@@ -15,10 +15,13 @@
     <Queries>
         <Query id="default">
             <ValidColumns>
+            	<Column>user_id</Column>
                 <Column>user_email</Column>
                 <Column>user_password</Column>
                 <Column>user_name</Column>
                 <Column>user_surname</Column>
+                <Column>user_birth_date</Column>
+                <Column>user_creation_date</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[

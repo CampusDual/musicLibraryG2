@@ -1,28 +1,29 @@
 <div class="page-header">
   <h1>My profile</h1>
 </div>
-<div class="user-info">
+<div *ngIf="user" class="user-info">
   <img src="../../../assets/images/user_profile.png" alt="" class="user-avatar">
   <div class="header-username">
-    <h3>Manuel Santamariña</h3>
+    <h3>{{user.user_name}} {{user.user_surname}}</h3>
     <p>Harmony registered user</p>
   </div>
 </div>
-<div class="user-form">
+<div  *ngIf="user" class="user-form">
 
   <h2 class="user-form-header">Edit user info</h2>
-  <mat-form-field>
+  
+  <mat-form-field id="test">
     <mat-label>Name</mat-label>
-    <input matInput type="text">
+    <input [(ngModel)]="user.user_name" matInput type="text">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Last Name</mat-label>
-    <input matInput type="text">
+    <input  [(ngModel)]="user.user_surname" matInput type="text">
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input matInput type="text">
+    <input [(ngModel)]="user.user_email" matInput type="text">
   </mat-form-field>
   <mat-form-field>
     <mat-label>Password</mat-label>
@@ -33,7 +34,7 @@
  
   </mat-form-field>
   <div class="button-container">
-    <button mat-raised-button class="focusButton" color="accent">Update</button>
+    <button mat-raised-button class="focusButton" color="accent" (click)="updateUserDetails()">Update</button>
     <button mat-raised-button class="altButton">Clear</button>
   </div>
   
@@ -43,5 +44,17 @@
   <h2>Account deletion</h2>
   <p><em>Are you unhappy with the service? In those cases where relationships don't work, the best thing to do is to say goodbye...</em></p>
   
-  <button mat-raised-button>Yes, delete my account</button>
+  <button mat-raised-button (click)="accountDeletionStart()">Yes, delete my account</button>
+  
+    <div *ngIf="deletingAccountState" class="stage2deletion">
+    <p>If things have to be this way then, fine. Please write "DELETE" in all capital letters in the text box below.</p>
+    <mat-form-field>
+    <input [(ngModel)]="deleteText" matInput type="text">
+  </mat-form-field>
+  <p *ngIf="errorOnDeleteInput" class="deleteInputError">Wrong. It's "DELETE". Seems that you really want to stay here with us after all!</p>
+  <br>
+  <button mat-raised-button (click)="deleteAccount()">Goodbye.</button>
+  
+  </div>
+  
 </div>

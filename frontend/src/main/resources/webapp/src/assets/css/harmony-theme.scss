@@ -5,19 +5,19 @@
 
 /* Color definitions */
 $mat-custom-primary: (
-  50: #bdf5b3,
+  50: black,
   100: #82eb6f,
-  200: #57e53e,
+  200: #f00,
   300: #33c11a,
   400: #2ca617,
-  500: rgb(0, 0, 0),
+  500: red,
   600: #ffffff,
   700: #17550c,
   800: #103a08,
   900: #081f04,
   A100: #bdf5b3,
-  A200: #82eb6f,
-  A400: #2ca617,
+  A200: #FF0000,
+  A400: #f00,
   A700: #17550c,
 
   contrast: (
@@ -40,7 +40,7 @@ $mat-custom-primary: (
 
 /* Define a theme.*/
 $primary: mat-palette($mat-custom-primary);
-$accent:  mat-palette($mat-red, A200, A100, A400);
+$accent:  mat-palette($mat-custom-primary, A200, A100, A400);
 
 /* The warn palette is optional (defaults to red).*/
 $warn:    mat-palette($mat-red);

@@ -89,7 +89,7 @@ public class AlbumService implements IAlbumService {
 	@Override
 	public EntityResult albumSongs(Map<String, Object> req) throws OntimizeJEERuntimeException {
 		try {
-			List<String> columns = Arrays.asList(AlbumDao.ATTR_TITLE,SongDao.ATTR_NAME,SongDao.ATTR_DURATION, AlbumSongDao.ATTR_TRACK_NUMBER);
+			List<String> columns = Arrays.asList(AlbumDao.ATTR_TITLE,AlbumDao.ATTR_RELEASE_YEAR,SongDao.ATTR_NAME,SongDao.ATTR_DURATION, AlbumSongDao.ATTR_TRACK_NUMBER);
 			Map<String,Object> filter = (Map<String, Object>) req.get("filter");
 			
 			int id = Integer.parseInt((String)filter.get("id"));

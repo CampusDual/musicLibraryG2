@@ -20,6 +20,11 @@ mat-form-field{
     background-color: black;
     height: 190px;
 }
+
+.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: red;
+  } 
 .user-form{
     background-color: black;
     margin-top:10px;
@@ -45,4 +50,20 @@ mat-form-field{
     margin-top:10px;
     padding:20px;
     background-color:black;
+}
+.page-header > h1{
+    margin-left: 20px;
+}
+.deleteInputError{
+    color: #f00;
+    display:inline;
+    margin-left: 10px;
+}
+#test{
+    .mat-form-field-underline{
+        background-color: #f00;
+    }
+    .mat-form-field-ripple{
+        background-color: #f00;
+    }
 }

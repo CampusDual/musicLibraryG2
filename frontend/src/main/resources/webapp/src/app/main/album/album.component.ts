@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DIRECTORIES } from 'app/app.config';
+import { AlbumService } from './service/album.service';
 
 @Component({
   selector: 'app-album',
@@ -12,7 +13,9 @@ export class AlbumComponent implements OnInit {
   nTracks: number;
   cumulativeDuration: string;
   dataSource: song[];
-  constructor() { }
+  constructor(
+    private albumService: AlbumService
+  ) { }
 
 
   buildImagePath(){
@@ -26,14 +29,15 @@ export class AlbumComponent implements OnInit {
     
     this.albumService.getAlbum(this.album["id"]).subscribe( album=> {
       album["data"].forEach(element => {
-        let genericItem:Album = {
+        let genericItem: Album = {
           id: element["album_id"],
           artist: element["artist"],
+          title: element["title"],
           creationYear: element["creation_year"],
           songList[
             
           ]
-        }
+        };
     meteora = { 
       id: 1,
       title: "Meteora",
