@@ -11,6 +11,7 @@ import { AlbumComponent } from './album/album.component';
 import { AlbumModule } from './album/album.module';
 import { ArtistModule } from './artist/artist.module';
 import { UserModule } from './user/user.module';
+import { PlaylistModule } from './playlist/playlist.module';
 
 
 export function loadHomeModule() {
@@ -36,6 +37,9 @@ export function loadArtistModule(){
 export function loadUserModule(){
   return UserModule
 }
+export function loadPlaylistModule(){
+  return PlaylistModule
+}
 export const routes: Routes = [
   {
     path: '',
@@ -49,7 +53,9 @@ export const routes: Routes = [
       { path: 'testpage', loadChildren: loadTestPageModule},
       { path: 'album/:id', loadChildren: loadAlbumModule},
       { path: 'artist/:id', loadChildren: loadArtistModule},
+      { path: 'playlist/:id', loadChildren: loadPlaylistModule},
       { path: 'user', loadChildren: loadUserModule}
+      
     ]
   }
 ];

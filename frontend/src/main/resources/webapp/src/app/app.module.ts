@@ -10,6 +10,8 @@ import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_FORMATS } from '@angular/material';
 
 
 // Standard providers...
@@ -22,7 +24,8 @@ export const customProviders: any = [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MomentDateModule
   ],
   declarations: [
     AppComponent
@@ -34,6 +37,6 @@ export const customProviders: any = [
     { provide: APP_CONFIG, useValue: CONFIG },
     ...ONTIMIZE_PROVIDERS,
     ...customProviders
-  ],
+  ]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-  <div class="header">
+  <div *ngIf="album" class="header">
     
     <img src="{{imagePath}}" alt="" class="album-cover">
     <div class="album-info">
@@ -18,5 +18,6 @@
       </button>
     </div>
   </div>
+  <app-mat-songlist-table [dataSource]="album.songList"></app-mat-songlist-table>
 
 </div>

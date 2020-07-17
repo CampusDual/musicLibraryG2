@@ -10,5 +10,4 @@ interface song {
     track: number;
     title: string; 
     duration: number;
-}
-   
+}   

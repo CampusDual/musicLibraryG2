@@ -53,6 +53,7 @@
 				${mainschema}.ALBUM a
 				INNER JOIN album_song als ON als.album_id = a.album_id
 				INNER JOIN song s on s.song_id = als.song_id
+				INNER JOIN artist ar on ar.artist_id = a.artist_id
 			#WHERE#
 			ORDER BY als.track_number asc
 		]]>

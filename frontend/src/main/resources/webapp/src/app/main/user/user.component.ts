@@ -10,6 +10,7 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class UserComponent implements OnInit {
   user:user;
+  firstUserName: string; 
   deleteText: string;
   deletingAccountState:boolean = false;
   errorOnDeleteInput: boolean;
@@ -23,6 +24,7 @@ export class UserComponent implements OnInit {
       user["data"].forEach(element => {
         console.log(element)
         this.user = element;
+        this.firstUserName = element["user_name"] + " "+ element["user_surname"]
       }))
 
       console.log(this.user);
@@ -47,11 +49,21 @@ export class UserComponent implements OnInit {
     console.log(response));
   
 }
+clearFields(){
+  this.user = {
+    user_name: "",
+    user_surname: "",
+    user_email: "",
+    user_password: "",
+    user_creation_date: 0,
+    user_birth_date: 0
+  }
+}
 
   deleteAccount(){
     
     if (this.deleteText === "DELETE"){
-
+      this.userService.deleteAccount();
     }else{ 
       this.errorOnDeleteInput = true;
     }

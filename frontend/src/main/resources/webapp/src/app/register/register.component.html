@@ -1,0 +1,50 @@
+<div class="page">
+  <div class="container mat-elevation-z1">
+    <div class="user-form">
+
+      <h2 class="user-form-header">Welcome to Harmony! Who are you?</h2>
+      
+      <mat-form-field class="regular-field name">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="user.user_name" matInput type="text">
+        <mat-error *ngIf="user.user_name.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="regular-field last-name">
+        <mat-label>Last Name</mat-label>
+        <input  [(ngModel)]="user.user_surname" matInput type="text">
+        <mat-error *ngIf="true">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+   
+      <br>
+      <mat-form-field class="regular-field email">
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="user.user_email" matInput type="text">
+        <mat-error *ngIf="true">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="regular-field datepicker">
+        <mat-label>Birth date</mat-label>
+        <input [(ngModel)]="user.user_birth_date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="regular-field password">
+        <mat-label>Password</mat-label>
+        <input [(ngModel)]="user.user_password" matInput [type]="hide ? 'password' : 'text'">
+        <mat-error *ngIf="true">{{getErrorMessage()}}</mat-error>
+     
+      </mat-form-field>
+      <mat-form-field class="regular-field confirmation">
+        <mat-label>Confirmation</mat-label>
+        <input [(ngModel)]="confirmationPassword" matInput [type]="hide ? 'password' : 'text'">
+        <mat-error *ngIf="true">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      <div class="button-container">
+        <button mat-raised-button class="focusButton" color="accent" (click)="register()">Submit</button>
+        <button mat-raised-button class="altButton" (click)="clearFields()">Clear</button>
+      </div>
+  </div>
+</div>

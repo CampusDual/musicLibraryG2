@@ -4,7 +4,7 @@
 <div *ngIf="user" class="user-info">
   <img src="../../../assets/images/user_profile.png" alt="" class="user-avatar">
   <div class="header-username">
-    <h3>{{user.user_name}} {{user.user_surname}}</h3>
+    <h3>{{firstUserName}}</h3>
     <p>Harmony registered user</p>
   </div>
 </div>
@@ -35,7 +35,7 @@
   </mat-form-field>
   <div class="button-container">
     <button mat-raised-button class="focusButton" color="accent" (click)="updateUserDetails()">Update</button>
-    <button mat-raised-button class="altButton">Clear</button>
+    <button mat-raised-button class="altButton" (click)="clearFields()">Clear</button>
   </div>
   
  

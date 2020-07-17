@@ -29,6 +29,8 @@ export class HorizontalListComponent implements OnInit {
       this.router.navigate(['/main/', String('album'),item.id], {relativeTo: this.actRoute});
     }else if (item.itemType === 'artist'){
       this.router.navigate(['/main/', String('artist'),item.id])
+    }else if(item.itemType === 'playlist'){
+      this.router.navigate(['/main/', String('playlist'),item.id])
     }
   }
   getDirectory(item: HlItem){

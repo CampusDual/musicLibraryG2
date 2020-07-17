@@ -5,20 +5,15 @@ import { CONFIG } from '../../../app.config';
 import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
-export class AlbumService extends OntimizeEEService {
-    getAlbum(id: number) {
-        let requestBody = {
-            "filter": {
-                "id": String(id)
-            }
-        }
-        const url = CONFIG.apiEndpoint + '/albums/albumSongs';
+export class PlaylistService extends OntimizeEEService {
+    getPlaylist(id: number) {
+        const url = CONFIG.apiEndpoint + '/playlists/'+id;
         var options = {
             headers: this.buildHeaders()
         };
         var self = this;
         var dataObservable = new Observable(function (_innerObserver) {
-            self.httpClient.post(url,requestBody,options).subscribe(function (resp) { 
+            self.httpClient.get(url,options).subscribe(function (resp) { 
                 self.parseSuccessfulQueryResponse(resp, _innerObserver);
             }, function (error) {
                 self.parseUnsuccessfulQueryResponse(error, _innerObserver);

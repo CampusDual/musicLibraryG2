@@ -1,0 +1,33 @@
+.page{
+    color: #fff;
+}
+.container{
+    position: absolute;
+    background-color: #424242;
+    width: 50%;
+    height: auto;
+    margin:10%;
+    
+    padding:50px;
+}
+mat-form-field{
+    margin:10px;
+    margin-left: 0px;
+}
+.name-container{
+    margin:0px;
+    padding:0px;
+}
+.regular-field{
+    width: 30%;
+    min-width:200px;
+}
+.focusButton{
+    margin-right: 20px
+}
+.altButton {
+    background-color: black;
+}
+.smallButton{
+    width: 20px;;
+}

@@ -1,7 +1,6 @@
 <div fxLayout="row" fxFill fxLayoutAlign="center center" class="login-outer-container">
-
   <div fxLayout="column" fxLayoutAlign="center" class="login-inner-container mat-elevation-z1">
-
+    
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div fxLayout="column" fxLayoutAlign="center center" class="logo-container mat-elevation-z4">
         <img src="./assets/images/ontimize.png">
@@ -21,12 +20,13 @@
       <div layout-padding></div>
       <div layout-padding></div>
       <div fxLayout="column" fxLayoutAlign="center center" layout-padding>
-        <span class="title_text">{{ 'EXAMPLE_LOGIN_INFO' | oTranslate }}:</span>
-        <span class="dark_text">{{ 'USERNAME' | oTranslate }} : demo</span>
-        <span class="dark_text">{{ 'PASSWORD' | oTranslate }} : demouser</span>
       </div>
     </form>
-
+    <div class="register-background mat-elevation-z4">
+      Don't have an account yet? <br><a class="link" routerLink="../register">Sign up now!</a>
+    </div>
   </div>
+  
+  <img src="http://via.placeholder.com/200">
 
 </div>

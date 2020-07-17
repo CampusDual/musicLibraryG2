@@ -83,4 +83,7 @@ export class LoginComponent implements OnInit {
       default: break;
     }
   }
+  register(){
+    this.router.navigate(['../', 'register'], { relativeTo: this.actRoute });
+  }
 }

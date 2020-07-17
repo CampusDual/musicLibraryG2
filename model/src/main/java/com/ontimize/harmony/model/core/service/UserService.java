@@ -71,6 +71,8 @@ public class UserService implements IUserService {
 
 
 	public EntityResult userDelete(Map<?, ?> keyMap) {
+		
+		
 		Map<Object, Object> attrMap = new HashMap<>();
 		attrMap.put("down_date", new Timestamp(Calendar.getInstance().getTimeInMillis()));
 		return this.daoHelper.update(this.userDao, attrMap, keyMap);

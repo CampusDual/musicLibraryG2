@@ -80,7 +80,28 @@ export class UserService extends OntimizeEEService {
         console.log("probando");
         return dataObservable.pipe(share());
     }
-    
+    deleteUserAccountByEmail(email: string ){
+
+        let requestBody = {
+            "filter": {
+                "user_email": email
+            }
+        }
+        const url = CONFIG.apiEndpoint + '/users/user';
+        var options = {
+            headers: this.buildHeaders()
+        };
+        var self = this;
+        var dataObservable = new Observable(function (_innerObserver) {
+            self.httpClient.delete(url).subscribe(function (resp) { 
+                self.parseSuccessfulQueryResponse(resp, _innerObserver);
+            }, function (error) {
+                self.parseUnsuccessfulQueryResponse(error, _innerObserver);
+            }, function () { return _innerObserver.complete(); });
+        });
+        console.log("probando");
+        return dataObservable.pipe(share());
+    } 
     buildHeaders() {
         const appData = JSON.parse(localStorage.getItem(CONFIG.uuid));
         return new HttpHeaders({
@@ -88,6 +109,35 @@ export class UserService extends OntimizeEEService {
             'Content-Type': 'application/json;charset=UTF-8',
             'Authorization': 'Bearer ' + appData.session.id
         });
+    }
+
+    insertUser(currentUser: user){
+            let userRequestBody = {
+                "data": { 
+                    "user_name": currentUser.user_name,
+                    "user_surname": currentUser.user_surname,
+                    "user_email":currentUser.user_email,
+                    "user_creation_date": Date.now(),
+                    "user_birth_date": currentUser.user_birth_date
+                }
+            }
+    
+            const url = CONFIG.apiEndpoint + '/users/user/search';
+            var options = {
+                headers: this.buildHeaders()
+            };
+            var self = this;
+            var dataObservable = new Observable(function (_innerObserver) {
+                self.httpClient.post(url,JSON.stringify(userRequestBody),options).subscribe(function (resp) { 
+                    self.parseSuccessfulQueryResponse(resp, _innerObserver);
+                }, function (error) {
+                    self.parseUnsuccessfulQueryResponse(error, _innerObserver);
+                }, function () { return _innerObserver.complete(); });
+            });
+            return dataObservable.pipe(share()); 
+    }
+    deleteAccount(){
+        
     }
 
 }
