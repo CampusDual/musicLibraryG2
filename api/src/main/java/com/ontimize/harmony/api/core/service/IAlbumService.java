@@ -16,4 +16,5 @@ public interface IAlbumService {
 	public EntityResult newestAlbums();
 	public EntityResult searchAlbum(Map<String, Object> keyMap)throws OntimizeJEERuntimeException;
 	public EntityResult albumSongs(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
+	public EntityResult albumArtist(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 }

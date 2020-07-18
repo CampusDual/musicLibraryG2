@@ -26,6 +26,21 @@
 				]]>
 			</Sentence>
 		</Query>
+		<Query id="searchArtistById">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="artist_id" prefix="a"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.ARTIST a
+				#WHERE#
+				]]>
+			</Sentence>
+		</Query>
+		
  	<Query id = "searchArtist">
  		<Sentence>
  			<![CDATA[

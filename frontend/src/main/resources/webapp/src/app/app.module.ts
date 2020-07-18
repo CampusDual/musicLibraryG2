@@ -10,6 +10,8 @@ import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FiltroPipe } from './pipes/filtro.pipe';
+import { PipesModule } from './pipes/pipes.module';
 
 
 // Standard providers...
@@ -22,6 +24,7 @@ export const customProviders: any = [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
     AppRoutingModule,
+    PipesModule,
     HttpClientModule
   ],
   declarations: [

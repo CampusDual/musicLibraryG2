@@ -14,7 +14,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class ArtistDao extends OntimizeJdbcDaoSupport {
 
  public static final String ATTR_ARTIST_ID = "artist_id";
- public static final String ATTR_NAME = "name";
+ public static final String ATTR_NAME = "name_artist";
  public static final String ATTR_DESCRIPTION = "description";
  public static final String ATTR_CREATION_YEAR= "creation_year";
  

@@ -24,16 +24,13 @@ export class AlbumComponent implements OnInit {
   ngOnInit() {
     let meteora: Album; 
     
-    this.albumService.getAlbum(this.album["id"]).subscribe( album=> {
+    /*this.albumService.getAlbum(this.album["id"]).subscribe( album=> {
       album["data"].forEach(element => {
         let genericItem:Album = {
           id: element["album_id"],
           artist: element["artist"],
-          creationYear: element["creation_year"],
-          songList[
-            
-          ]
-        }
+          creationYear: element["creation_year"]
+        }*/
     meteora = { 
       id: 1,
       title: "Meteora",
@@ -96,5 +93,4 @@ export class AlbumComponent implements OnInit {
       
     }
     //Returns track duration in mm:ss format.
-    
   }
