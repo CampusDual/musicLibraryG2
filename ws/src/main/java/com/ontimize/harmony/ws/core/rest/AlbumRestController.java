@@ -48,4 +48,12 @@ public class AlbumRestController extends ORestController<IAlbumService> {
 		return albumService.albumSongs(req);
 		
 	}
+	
+	@RequestMapping(value = "albumArtist", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult postArtistAlbum(@RequestBody Map<String, Object> req) {
+		
+		return albumService.albumArtist(req);
+		
+	}
+	
 }

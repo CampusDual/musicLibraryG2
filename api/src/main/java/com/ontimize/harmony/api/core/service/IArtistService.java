@@ -15,4 +15,5 @@ public interface IArtistService {
 	public EntityResult artistDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	public EntityResult artistSearch(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	public EntityResult newestArtists();
+	public EntityResult searchArtistById(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 }

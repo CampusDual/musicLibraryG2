@@ -28,6 +28,18 @@
 				]]>
 			</Sentence>
 		</Query>
+		<Query id = "albumArtist">
+		<Sentence>
+		<![CDATA[
+			SELECT
+				#COLUMNS#
+			FROM
+				${mainschema}.album a
+			#WHERE#
+		]]>
+		</Sentence>
+		</Query>
+		
 		<Query id = "searchAlbum">
 		<Sentence>
 		<![CDATA[

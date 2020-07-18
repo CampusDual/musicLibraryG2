@@ -75,7 +75,7 @@ public class AlbumService implements IAlbumService {
 			Map<String, Object> key = new HashMap<String, Object>();
 			
 			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(AlbumDao.ATTR_TITLE, searchName));
-			return this.daoHelper.query(this.albumDao, key, columns);
+			return this.daoHelper.query(this.albumDao, key, columns, "SearchAlbum");
 		} catch (Exception e) {
 			e.printStackTrace();
 			EntityResult res = new EntityResult();
@@ -86,6 +86,26 @@ public class AlbumService implements IAlbumService {
 	}
 
 
+	@Override
+	public EntityResult albumArtist(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+		try {
+			List<String> columns = Arrays.asList(AlbumDao.ATTR_TITLE, albumDao.ATTR_RELEASE_YEAR);
+			Map <String, Object> filter = (Map<String, Object>) keyMap.get("filter");
+		
+			int id = Integer.parseInt((String)filter.get("id"));
+			Map<String, Object> key = new HashMap<String, Object>();
+			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,searchById(ArtistDao.ATTR_ARTIST_ID, id));
+			return this.daoHelper.query(this.albumDao, key, columns, "albumArtist");} 
+		catch (Exception e) {
+			e.printStackTrace();
+			EntityResult res = new EntityResult();
+			res.setCode(EntityResult.OPERATION_WRONG);
+			return res;
+		
+		}
+	}
+	
+	
 	@Override
 	public EntityResult albumSongs(Map<String, Object> req) throws OntimizeJEERuntimeException {
 		try {
@@ -121,6 +141,8 @@ public class AlbumService implements IAlbumService {
 			BasicExpression bexp = new BasicExpression(field,BasicOperator.EQUAL_OP,searchTerm);
 			return bexp;
 		}
+
+		
 	
 	
 }

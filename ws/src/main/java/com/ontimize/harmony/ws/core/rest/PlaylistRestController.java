@@ -1,8 +1,11 @@
 package com.ontimize.harmony.ws.core.rest;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,4 +33,25 @@ public class PlaylistRestController extends ORestController<IPlaylistService> {
 		
 		return playlistService.newestPlaylists();
 	}
+	
+	
+	@RequestMapping(value = "playlistSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult playlistSong(@RequestBody Map<String, Object> req) {
+		
+		return playlistService.playlistSong(req);
+	}
+	
+	@RequestMapping(value = "playlistUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult playlistUser(@RequestBody Map<String, Object> req) {
+		
+		return playlistService.playlistUser(req);
+	}
+	
+	@RequestMapping(value = "playlistSearch", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult playlistSearch(@RequestBody Map<String, Object> req) {
+		
+		return playlistService.playlistSearch(req);
+	}
+	
+	
 }

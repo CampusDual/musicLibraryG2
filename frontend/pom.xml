@@ -42,7 +42,7 @@
 					<executable>../build</executable>
 				</configuration>
 			</plugin>
-		</plugins>
+ 		</plugins>
 
 
 		<!-- <finalName>${project.artifactId}</finalName> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> 

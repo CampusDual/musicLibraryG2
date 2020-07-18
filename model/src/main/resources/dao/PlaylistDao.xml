@@ -24,29 +24,91 @@
 				FROM
 					${mainschema}.PLAYLIST p
 				#WHERE#
-				
+
 				]]>
 			</Sentence>
 		</Query>
-		<Query id = "playlistSongs">
-		<AmbiguousColumns>
-			<AmbiguousColumn name="user_id" prefix="u"/>
-			<AmbiguousColumn name="song_id" prefix="s"/>
-			<AmbiguousColumn name="playlist_id" prefix="p"/>
-		</AmbiguousColumns>
-		<Sentence>
-		<![CDATA[
-			SELECT
-				#COLUMNS#
-			FROM
-				${mainschema}.ALBUM a
-				INNER JOIN playlist_song pls ON pls.playlist_id = p.playlist_id
-				INNER JOIN song s on s.song_id = pls.song_id
-				INNER JOIN user u on u.user_id = p.user_id
-			#WHERE#
-			ORDER BY als.track_number asc
-		]]>
-		</Sentence>
+		<Query id="playlistSong">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="playlist_id" prefix="p"/>
+				<AmbiguousColumn name="user_id" prefix="u"/>
+				<AmbiguousColumn name="song_id" prefix="s"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.PLAYLIST p
+					INNER JOIN tuser u ON u.user_id = p.user_id
+					INNER JOIN  playlist_song ps ON p.playlist_id = ps.playlist_id
+					INNER JOIN song s ON s.song_id = ps.song_id
+				#WHERE#
+
+				]]>
+			</Sentence>
 		</Query>
+
+		<Query id="playlistSearch">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="playlist_id" prefix="p"/>
+				<AmbiguousColumn name="user_id" prefix = "p"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.PLAYLIST p
+					INNER JOIN tuser u on u.user_id = p.user_id
+				#WHERE#
+				]]>
+			</Sentence>
+		</Query>
+
+
+
+
+
+		<Query id="playlistSong">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="playlist_id" prefix="p"/>
+				<AmbiguousColumn name="user_id" prefix="u"/>
+				<AmbiguousColumn name="song_id" prefix="s"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.PLAYLIST p
+					INNER JOIN tuser u ON u.user_id = p.user_id
+					INNER JOIN  playlist_song ps ON p.playlist_id = ps.playlist_id
+					INNER JOIN song s ON s.song_id = ps.song_id
+				#WHERE#
+
+				]]>
+			</Sentence>
+		</Query>
+		<Query id="playlistUser">
+			<AmbiguousColumns>
+				<AmbiguousColumn name="playlist_id" prefix="p"/>
+				<AmbiguousColumn name="user_id" prefix = "p"/>
+			</AmbiguousColumns>
+			<Sentence>
+				<![CDATA[
+				SELECT
+					#COLUMNS#
+				FROM
+					${mainschema}.PLAYLIST p
+					INNER JOIN tuser u on u.user_id = p.user_id
+				#WHERE#
+				]]>
+			</Sentence>
+		</Query>
+
+
+
+
 </Queries>
 </JdbcEntitySetup>
