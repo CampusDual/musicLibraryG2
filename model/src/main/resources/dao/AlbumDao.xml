@@ -24,6 +24,7 @@
 				FROM
 					${mainschema}.ALBUM a
 				#WHERE#
+				order by a.creation_date desc
 				]]>
 			</Sentence>
 		</Query>

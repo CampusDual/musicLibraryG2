@@ -6,14 +6,23 @@ import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ArtistService extends OntimizeEEService {
-    newestAlbums(artist_id: number) {
-        const url = CONFIG.apiEndpoint + '/artists/'+ String(artist_id);
+    getArtist(artist_id: number) {
+        const url = CONFIG.apiEndpoint + '/artists/artist/search';
+
+        let requestBody = 
+        {
+            "filter": {
+                "artist_id": String(artist_id)
+            },
+            "columns": ["artist_id","name_artist","description"]
+        }
+        
         var options = {
             headers: this.buildHeaders()
         };
         var self = this;
         var dataObservable = new Observable(function (_innerObserver) {
-            self.httpClient.get(url,options).subscribe(function (resp) { 
+            self.httpClient.post(url,requestBody,options).subscribe(function (resp) { 
                 self.parseSuccessfulQueryResponse(resp, _innerObserver);
             }, function (error) {
                 self.parseUnsuccessfulQueryResponse(error, _innerObserver);

@@ -23,6 +23,7 @@
 				FROM
 					${mainschema}.ARTIST a
 				#WHERE#
+				ORDER BY a.creation_date desc 
 				]]>
 			</Sentence>
 		</Query>

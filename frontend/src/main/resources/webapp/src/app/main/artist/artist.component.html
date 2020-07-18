@@ -1,15 +1,15 @@
 
 <div class="bg">
   <div class="white"></div>
-  <div class="banner">
+  <div *ngIf="artist" class="banner">
       
         
-        <h1><span class="title">{{artist.name}}</span></h1>
+        <h1><span class="title">{{artist.name_artist}}</span></h1>
 
         
       
   </div>
-  <div class="description">
+  <div *ngIf="artist" class="description">
     <h3 class="description-header">Description:</h3>
     <p style="white-space:pre-wrap;">{{artist.description}}</p></div>
   <div class="albums-container">

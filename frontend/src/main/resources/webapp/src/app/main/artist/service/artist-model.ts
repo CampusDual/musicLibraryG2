@@ -1,5 +1,5 @@
 interface artist {
     artist_id: number,
-    name: string,
+    name_artist: string,
     description: string
 }

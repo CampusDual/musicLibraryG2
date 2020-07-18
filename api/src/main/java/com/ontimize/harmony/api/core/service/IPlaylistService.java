@@ -14,4 +14,5 @@ public interface IPlaylistService {
 	public EntityResult playlistUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	public EntityResult playlistDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
 	public EntityResult newestPlaylists();
+	public EntityResult playlistSongs(Map<String, Object> req) throws OntimizeJEERuntimeException;
 }

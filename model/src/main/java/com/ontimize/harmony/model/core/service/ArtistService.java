@@ -82,9 +82,9 @@ public class ArtistService implements IArtistService {
 	@Override
 	public EntityResult newestArtists() {
 		Map<String, Object> keyMap= new HashMap<String, Object>();
-		List<String> attrList = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_CREATION_YEAR);
+		List<String> attrList = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_CREATION_YEAR,ArtistDao.ATTR_CREATION_DATE);
 		
-		return this.daoHelper.query(this.artistDao, keyMap, attrList,"newestAlbums");
+		return this.daoHelper.query(this.artistDao, keyMap, attrList,"newestArtists");
 		
 	}
 

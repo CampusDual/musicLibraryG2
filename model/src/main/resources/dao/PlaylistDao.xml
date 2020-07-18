@@ -28,5 +28,25 @@
 				]]>
 			</Sentence>
 		</Query>
+		<Query id = "playlistSongs">
+		<AmbiguousColumns>
+			<AmbiguousColumn name="user_id" prefix="u"/>
+			<AmbiguousColumn name="song_id" prefix="s"/>
+			<AmbiguousColumn name="playlist_id" prefix="p"/>
+		</AmbiguousColumns>
+		<Sentence>
+		<![CDATA[
+			SELECT
+				#COLUMNS#
+			FROM
+				${mainschema}.ALBUM a
+				INNER JOIN playlist_song pls ON pls.playlist_id = p.playlist_id
+				INNER JOIN song s on s.song_id = pls.song_id
+				INNER JOIN user u on u.user_id = p.user_id
+			#WHERE#
+			ORDER BY als.track_number asc
+		]]>
+		</Sentence>
+		</Query>
 </Queries>
 </JdbcEntitySetup>

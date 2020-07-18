@@ -17,6 +17,7 @@ public class ArtistDao extends OntimizeJdbcDaoSupport {
  public static final String ATTR_NAME = "name_artist";
  public static final String ATTR_DESCRIPTION = "description";
  public static final String ATTR_CREATION_YEAR= "creation_year";
+ public static final String ATTR_CREATION_DATE= "creation_date";
  
 
 }

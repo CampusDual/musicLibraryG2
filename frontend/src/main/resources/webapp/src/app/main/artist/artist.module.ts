@@ -5,6 +5,8 @@ import { ArtistRoutingModule } from './artist-routing.module';
 import { ArtistComponent } from './artist.component';
 import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { SharedModule } from 'app/shared/shared.module';
+import { ArtistService } from './service/artist.service';
+import { AlbumService } from '../album/service/album.service';
 
 @NgModule({
   imports: [
@@ -15,6 +17,10 @@ import { SharedModule } from 'app/shared/shared.module';
   ],
   declarations: [
     ArtistComponent
+  ],
+  providers: [
+    ArtistService,
+    AlbumService
   ]
 })
 export class ArtistModule { }

@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
           let genericItem = {
             id: element["artist_id"],
             itemType: "artist",
-            row1: element["name"]
+            row1: element["name_artist"]
           }
           this.artistDataSource.push(genericItem);
         })
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
           let genericItem = {
             id: element["playlist_id"],
             itemType: "playlist",
-            row1: element["name"]
+            row1: element["name_playlist"]
           }
           this.playlistDataSource.push(genericItem);
         });
