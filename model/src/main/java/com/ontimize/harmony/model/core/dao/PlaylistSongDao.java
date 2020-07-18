@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.ontimize.jee.server.dao.common.ConfigurationFile;
 import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 
-@Repository("PlaylistDao")
+@Repository("PlaylistSongDao")
 @Lazy
-@ConfigurationFile(configurationFile = "dao/PlaylistDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
+@ConfigurationFile(configurationFile = "dao/PlaylistSongDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class PlaylistSongDao extends OntimizeJdbcDaoSupport {
 
  public static final String ATTR_PLAYLIST_ID = "playlist_id";

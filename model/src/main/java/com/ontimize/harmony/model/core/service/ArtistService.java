@@ -59,7 +59,7 @@ public class ArtistService implements IArtistService {
 			String searchName = (String) filter.get("name");
 			Map<String, Object> key = new HashMap<String, Object>();
 			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(artistDao.ATTR_NAME, searchName));
-			return this.daoHelper.query(this.artistDao,key, columns);
+			return this.daoHelper.query(this.artistDao,key, columns,"artistSearch");
 		} catch (Exception e) {
 			e.printStackTrace();
 			EntityResult res = new EntityResult();
