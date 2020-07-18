@@ -35,7 +35,7 @@ public class PlaylistRestController extends ORestController<IPlaylistService> {
 	}
 	
 	
-	@RequestMapping(value = "playlistSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "playlistSongs", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult playlistSong(@RequestBody Map<String, Object> req) {
 		
 		return playlistService.playlistSong(req);

@@ -28,7 +28,7 @@
 				]]>
 			</Sentence>
 		</Query>
-		<Query id="playlistSong">
+		<Query id="playlistSongs">
 			<AmbiguousColumns>
 				<AmbiguousColumn name="playlist_id" prefix="p"/>
 				<AmbiguousColumn name="user_id" prefix="u"/>

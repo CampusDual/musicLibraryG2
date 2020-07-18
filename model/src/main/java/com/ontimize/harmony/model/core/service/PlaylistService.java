@@ -72,7 +72,7 @@ public class PlaylistService implements IPlaylistService {
 			int id = Integer.parseInt((String)filter.get("id"));
 			Map<String, Object> key = new HashMap<String, Object>();
 			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,searchById(playlistDao.ATTR_PLAYLIST_ID, id));
-			return this.daoHelper.query(this.playlistDao, key, columns, "playlistSong");
+			return this.daoHelper.query(this.playlistDao, key, columns, "playlistSongs");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
