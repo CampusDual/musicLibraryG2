@@ -7,13 +7,18 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class PlaylistService extends OntimizeEEService {
     getPlaylist(id: number) {
-        const url = CONFIG.apiEndpoint + '/playlists/'+id;
+        const url = CONFIG.apiEndpoint + '/playlists/playlistSongs';
+        let requestBody = {
+            "filter": {
+                "id": id
+            }
+        }
         var options = {
             headers: this.buildHeaders()
         };
         var self = this;
         var dataObservable = new Observable(function (_innerObserver) {
-            self.httpClient.get(url,options).subscribe(function (resp) { 
+            self.httpClient.post(url,requestBody,options).subscribe(function (resp) { 
                 self.parseSuccessfulQueryResponse(resp, _innerObserver);
             }, function (error) {
                 self.parseUnsuccessfulQueryResponse(error, _innerObserver);

@@ -24,8 +24,8 @@
 			</resource>
 		</resources>
 		
-		<plugins>
-			<plugin>
+		<!--	<plugins>
+		 <plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
@@ -41,8 +41,8 @@
 				<configuration>
 					<executable>../build</executable>
 				</configuration>
-			</plugin>
- 		</plugins>
+			</plugin> 
+		</plugins>-->
 
 
 		<!-- <finalName>${project.artifactId}</finalName> <plugins> <plugin> <groupId>org.codehaus.mojo</groupId> 

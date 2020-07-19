@@ -38,11 +38,9 @@ public class ArtistRestController extends ORestController<IArtistService> {
 			return this.artistService.artistSearch(req);
 			
 		}
-		
 		@RequestMapping(value = "searchArtistById", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 		public EntityResult searchArtistById(@RequestBody Map<String, Object> req) {
 			return this.artistService.searchArtistById(req);
 			
 		}
-
 }

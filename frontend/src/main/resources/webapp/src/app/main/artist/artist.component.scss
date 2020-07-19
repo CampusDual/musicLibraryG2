@@ -4,9 +4,7 @@ h1{
     padding:20px;
 }
 .banner {
-    background-image:
-    linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)),
-    url('../../../assets/images/artists/1_banner.png'); 
+    
     background-position: top;
     width: 100%;
     height: 400px;
@@ -15,6 +13,9 @@ h1{
     overflow: hidden;
 
 }
+.title-container{
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
 
 // ../../../assets/images/banners/Banner1.png
 .title{
@@ -22,6 +23,8 @@ h1{
     position: absolute;
     bottom: 13px;
     left: 16px;
+    background-color: black;
+    padding: 15px;
 }
 .description{
     background-color: black;

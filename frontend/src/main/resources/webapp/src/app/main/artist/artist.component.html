@@ -1,13 +1,9 @@
 
 <div class="bg">
   <div class="white"></div>
-  <div *ngIf="artist" class="banner">
-      
+  <div *ngIf="artist" [ngStyle]="{background: 'url(src/assets/images/artists/' + id +'_banner.png)'}" class="banner">
+<h1><span class="title">{{artist.name_artist}}</span></h1>
         
-        <h1><span class="title">{{artist.name_artist}}</span></h1>
-
-        
-      
   </div>
   <div *ngIf="artist" class="description">
     <h3 class="description-header">Description:</h3>

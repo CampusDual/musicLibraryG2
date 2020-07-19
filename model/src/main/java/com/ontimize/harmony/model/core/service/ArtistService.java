@@ -15,7 +15,6 @@ import com.ontimize.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.harmony.api.core.service.IArtistService;
 import com.ontimize.harmony.model.core.dao.AlbumDao;
 import com.ontimize.harmony.model.core.dao.ArtistDao;
-import com.ontimize.harmony.model.core.dao.PlaylistDao;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import com.ontimize.db.SQLStatementBuilder.BasicField;
@@ -52,8 +51,25 @@ public class ArtistService implements IArtistService {
 		return this.daoHelper.delete(this.artistDao, keyMap);
 	}
 
-	
-	
+	@Override
+	public EntityResult artistSearch(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
+		try {
+			List<String> columns = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_DESCRIPTION,ArtistDao.ATTR_CREATION_YEAR);
+			Map<String, Object> filter = (Map<String, Object>) keyMap.get("filter");
+			String searchName = (String) filter.get("name");
+			Map<String, Object> key = new HashMap<String, Object>();
+			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(artistDao.ATTR_NAME, searchName));
+			return this.daoHelper.query(this.artistDao,key, columns,"artistSearch");
+		} catch (Exception e) {
+			e.printStackTrace();
+			EntityResult res = new EntityResult();
+			res.setCode(EntityResult.OPERATION_WRONG);
+			return res;
+			
+		}
+	}
+
+
 	@Override
 	public EntityResult searchArtistById(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		try {
@@ -72,34 +88,6 @@ public class ArtistService implements IArtistService {
 		
 		}
 	}
-
-	
-	
-	
-	@Override
-	public EntityResult artistSearch(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
-		try {
-			List<String> columns = Arrays.asList(ArtistDao.ATTR_ARTIST_ID,ArtistDao.ATTR_NAME,ArtistDao.ATTR_DESCRIPTION,ArtistDao.ATTR_CREATION_YEAR);
-			Map<String, Object> filter = (Map<String, Object>) keyMap.get("filter");
-			String searchName = (String) filter.get("name");
-			Map<String, Object> key = new HashMap<String, Object>();
-			key.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY, searchLike(artistDao.ATTR_NAME, searchName));
-<<<<<<< HEAD
-			return this.daoHelper.query(this.artistDao,key, columns,"artistSearch");
-=======
-			return this.daoHelper.query(this.artistDao,key, columns, "artistSearch");
->>>>>>> 82483b20cb04f9012fa494611496bd3d1d7b6c14
-		} catch (Exception e) {
-			e.printStackTrace();
-			EntityResult res = new EntityResult();
-			res.setCode(EntityResult.OPERATION_WRONG);
-			return res;
-			
-		}
-	}
-
-
-	
 	
 	private BasicExpression searchLike(String nameCol, String searchTerm) {
 		
@@ -117,13 +105,12 @@ public class ArtistService implements IArtistService {
 		
 	}
 
-	
-
 	private BasicExpression searchById(String id, int searchTerm) {
 		BasicField field = new BasicField(id);
 		BasicExpression bexp = new BasicExpression(field,BasicOperator.EQUAL_OP,searchTerm);
 		return bexp;
 	}
+
 
 
 

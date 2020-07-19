@@ -39,7 +39,7 @@ export class HomeService extends OntimizeEEService {
     }
 
     newestPlaylists(){
-            const url = CONFIG.apiEndpoint + '/playlist/newestPlaylists'; 
+            const url = CONFIG.apiEndpoint + '/playlists/newestPlaylists'; 
             var options = {
                 headers: this.buildHeaders()
             };

@@ -4,14 +4,14 @@
     <div class="songlist-info">
       <span class="songlist-title">{{playlist.title}}</span>
       <br>
-      <span class="creation-date">{{playlist.date}}</span> • <span class="songs-number">{{nTracks}} {{ 'SONGS_lowercase' | oTranslate}}</span> • <span class="album-duration"> {{duration}} min.</span>
+      <span class="creation-date">{{playlist.date}}</span> • <span class="songs-number">{{nTracks}} {{ 'SONGS_lowercase' | oTranslate}}</span> • <span class="album-duration"> {{cumulativeDuration}} min.</span>
       <br>
       <span class="creator">Created by {{playlist.creator}}</span>
       <br>
       <br>
     </div>
   </div>
-  <app-mat-songlist-table [dataSource]="songList.songs">
+  <app-mat-songlist-table [dataSource]="dataSource">
 
   </app-mat-songlist-table>
 </div>

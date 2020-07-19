@@ -15,7 +15,7 @@ import com.ontimize.harmony.api.core.service.IPlaylistService;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/playlist") //TODO TEST
+@RequestMapping("/playlists") //TODO TEST
 @ComponentScan(basePackageClasses = {com.ontimize.harmony.api.core.service.IPlaylistService.class})
 public class PlaylistRestController extends ORestController<IPlaylistService> {
 	
@@ -32,26 +32,17 @@ public class PlaylistRestController extends ORestController<IPlaylistService> {
 	public EntityResult getNewestPlaylists() {
 		
 		return playlistService.newestPlaylists();
+		
 	}
-	
-	
-	@RequestMapping(value = "playlistSong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "playlistSongs", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult playlistSong(@RequestBody Map<String, Object> req) {
 		
 		return playlistService.playlistSong(req);
 	}
-	
-	@RequestMapping(value = "playlistUser", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public EntityResult playlistUser(@RequestBody Map<String, Object> req) {
-		
-		return playlistService.playlistUser(req);
-	}
-	
 	@RequestMapping(value = "playlistSearch", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult playlistSearch(@RequestBody Map<String, Object> req) {
 		
 		return playlistService.playlistSearch(req);
 	}
-	
-	
-}
+	}
+

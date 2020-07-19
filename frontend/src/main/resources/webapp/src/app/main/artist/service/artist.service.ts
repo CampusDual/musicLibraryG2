@@ -7,14 +7,13 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ArtistService extends OntimizeEEService {
     getArtist(artist_id: number) {
-        const url = CONFIG.apiEndpoint + '/artists/artist/search';
+        const url = CONFIG.apiEndpoint + '/artists/searchArtistById';
 
         let requestBody = 
         {
             "filter": {
-                "artist_id": String(artist_id)
-            },
-            "columns": ["artist_id","name_artist","description"]
+                "id": String(artist_id)
+            }
         }
         
         var options = {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from './service/playlist.service';
 import { DIRECTORIES } from 'app/app.config';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-playlist',
@@ -8,56 +9,80 @@ import { DIRECTORIES } from 'app/app.config';
   styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-  playlist: playlist;
-  imagePath:string;
-  nTracks: number; 
-  duration: number;
+  playlist: playlist = {title: "", creator: "", date: "", description: ""}
   date: string;
+  id: number;
+  imagePath: string;
+  nTracks: number;
+  cumulativeDuration: string;
+  dataSource: song[] = [];
   constructor(
-    private playlistService: PlaylistService
+    private playlistService: PlaylistService,
+    private _Activatedroute:ActivatedRoute
   ) { }
-
   ngOnInit() {
-     this.playlist = {
-      id: 1,
-      title: "2000's hits",
-      description: "Hits from the 2000s",
-      creator: "Manuel Santamariña",
-      date: "16-07-2020",
-      songs: [
-        {track: 1, title: "Foreword",duration: 13},
-        {track: 2, title: "Don't Stay", duration: 247},
-        {track: 3, title: "Believe Me Natalie", duration: 224},
-        {track: 4, title: "All These Things That I've Done", duration: 240}
-      ]
-  }
-  let songs: song[] = [{track: 1, title: "Foreword", duration: 13},
-  {track: 2, title: "Don't Stay", duration: 247},
-  {track: 3, title: "Somewhere I Belong", duration: 300},
-  {track: 4, title: "Believe Me Natalie", duration: 124}]
-  ;
 
-  this.playlist.songs = songs;
-  this.nTracks = this.playlist.songs.length;
-  this.imagePath = this.buildImagePath();
+   this._Activatedroute.params.subscribe(paramsId => {this.id = paramsId.id})
+   this.imagePath = String(DIRECTORIES.playlists+"/"+this.id+"_cover.png");
+   this.parsePlaylist();
+   
+  
+   /*this.albumService.getAlbum(this.album["id"]).subscribe( album=> {
+      
+      this.album.title = album["data"]["title"];
+      this.album.artist = album["data"]["name_artist"];
+      this.album.creationYear = album["data"]["release_year"];
 
-  this.duration = this.calculateDuration();
-}
-buildImagePath(){
-  let imagePath: string; 
-  imagePath = String(DIRECTORIES.playlists+"/"+this.playlist.id+"_cover.png");
-  console.log(imagePath);
-  return imagePath;
-}
-
-calculateDuration(){
-  let cumulativeDuration: number = 0;
-        for(let song of this.playlist.songs){
-          
-          cumulativeDuration += song.duration;
-          console.log(cumulativeDuration);
+      let songList: song[];
+    }*/
+     /* album["data"].forEach(element => {
+       
+        let currentSong: song = {
+            track: element["track_number"],
+            title: element["name"],
+            duration: element["duration"]
         }
-        return Math.floor(cumulativeDuration/60);
-      }
+        songList.push(currentSong);
+        }
+       this.album.songList = songList
+       console.log(this.album)*/
+      
+      
+      
+      
+     
+    }
 
-}
+
+    parsePlaylist(){
+      this.playlistService.getPlaylist(this.id).subscribe( playlist => {
+        this.playlist["title"] = playlist["data"][0]["name_playlist"];
+        console.log(this.playlist.title);
+        this.playlist["creator"] = playlist["data"][0]["name_artist"];
+        this.playlist["date"] = String((new Date(playlist["data"][0]["creation_date"]).getFullYear());
+      let songList: song[] = [];
+      playlist["data"].forEach(element => {
+        console.log(element);
+        let currentSong: song = {
+          track: element["track_order"],
+          title: element["name"],
+          duration: element["duration"]
+        }
+        songList.push(currentSong);
+      });
+
+      this.dataSource = songList;
+
+      //songlist operations
+      this.nTracks = this.dataSource.length;
+      let cumulativeDuration = 0;
+      this.dataSource.forEach( song => {
+        cumulativeDuration += song["duration"];
+      })
+
+      
+      this.cumulativeDuration = String(Math.trunc(cumulativeDuration/60));
+      console.log(this.dataSource);
+      })
+    }
+  }
